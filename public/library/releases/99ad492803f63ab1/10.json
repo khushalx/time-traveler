@@ -1,0 +1,26 @@
+[
+  {
+    "id": "commons-50878272",
+    "src": "/library/images/7b5494d359f57511347888399009e6b946d514b1629e4a4640ccfedfe105a6cd.webp",
+    "srcSet": "/library/images/7b5494d359f57511347888399009e6b946d514b1629e4a4640ccfedfe105a6cd-800.webp 800w, /library/images/7b5494d359f57511347888399009e6b946d514b1629e4a4640ccfedfe105a6cd.webp 821w",
+    "thumbnailSrc": "/library/images/7b5494d359f57511347888399009e6b946d514b1629e4a4640ccfedfe105a6cd-320.webp",
+    "year": 1965,
+    "title": "Kelet-Berlin, Alexanderplatz, szemben a térről elnevezett pályaudvar. Fortepan 76623",
+    "fact": "Kelet-Berlin, Alexanderplatz, szemben a térről elnevezett pályaudvar.",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kelet-Berlin,_Alexanderplatz,_szemben_a_t%C3%A9rr%C5%91l_elnevezett_p%C3%A1lyaudvar._Fortepan_76623.jpg",
+    "sourceName": "Wikimedia Commons",
+    "creator": "FOTO:Fortepan — ID 76623 : Adományozó/Donor: Erky-Nagy Tibor. archive copy at the Wayback Machine",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "category": "Everyday life",
+    "region": "Europe",
+    "location": "Europe",
+    "difficulty": "hard",
+    "quality": 1,
+    "width": 821,
+    "height": 1200,
+    "dateEvidence": "imageinfo.extmetadata.DateTimeOriginal: 1965",
+    "yearConfidence": "verified",
+    "modifications": "Resized without cropping; converted to WebP. Original license retained."
+  }
+]

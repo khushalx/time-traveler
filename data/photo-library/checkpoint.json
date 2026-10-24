@@ -1,0 +1,888 @@
+{
+  "version": 1,
+  "jobs": {
+    "09cd5c04087092e94b1d8254ef704ffc7117f4dd7c49f3297d7d6941db8cf7f4": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1960,
+        "search": "India street 1960 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "2994992b36d060ae4319cac1aea832f4d65a03fe9da56b2fb1d21fbbc687ca7d": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1935,
+        "search": "Japan market 1935 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "938316f1fd72288461c00066de750cb72ed8d6693ea853c5ec77053b9c833dc8": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1980,
+        "search": "Africa train 1980 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "1de2d47855c6c0e7047218fd3d1f6cfb351ecf254853b5f1f0af1d7174fa601c": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1955,
+        "search": "Brazil fashion 1955 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3684276694d91569e4e891aabc2a8efb3da6681ee780e688416b1ffeb6ed2def": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1970,
+        "search": "London family 1970 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b14b036c200d23134839527be588395e2dc96918466313032267a464b1b4c01f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1940,
+        "search": "France cars 1940 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8679cefcfa50865ec7bf4438c6e22409be3350bb3b7cadfff4b4f454bf3b273a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1990,
+        "search": "Australia music 1990 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9633a42328b19f290d7c58e1e8bc5fc090ff554e5ce184822322ce5a0788d94f": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1910,
+        "search": "Mexico technology 1910 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "2bdd7bdeb451acae018b244f8cf9bd99c17a32ad7deaf36c88feb9bbf05f84c1": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2000,
+        "search": "China street 2000 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "bba0939313cea9da4b3a058d5a08936cb8e89f8ce8c4a7a5d00a3df8f839f337": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1925,
+        "search": "New York market 1925 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "89bb9a3f8a7e4d064a3ba52281cba1c64f682c2c2a97918b9519c885ee0ca0cb": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 2010,
+        "search": "Singapore train 2010 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "42ed0bf4a4900f80979fdad44f1a5015746dfeddbac9b8274eda22190c4ed89a": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1905,
+        "search": "Egypt fashion 1905 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8087386667e93d4dcdfe63f1bf098ab9cada36da7ea6d51a9b5a4304956d7796": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1967,
+        "search": "Canada family 1967 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "a71734181f0c2571c959e78c8df1c4568cbd5112ed708ad8c3112ba46caa8f12": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1948,
+        "search": "Netherlands cars 1948 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e0a383449538d7adbfc49fecbe07ad553c59b43e544759fdbbd3893756524e76": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1985,
+        "search": "India music 1985 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "0d85452ebc0923b67a1abb0ba15fc961a5a12f4c47075cd59f892e499a63336f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1950,
+        "search": "Japan technology 1950 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "38342e30a0cc7981b188ec093ce90c1e7388422f4012f5174c9888b8bd6dc635": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1975,
+        "search": "Africa street 1975 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3c558b9b594adcc4b8e83696d9cd1139dbb42aad93d1ac9726c50e148d03dd6a": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1995,
+        "search": "Brazil market 1995 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5084f712560dd559afae2de55698659062811dc8d4a78d669ad0e114edc3a41b": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1960,
+        "search": "Fortepan 1960 street filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "620bbe7598432acaec408ee1f8574ae378a629ea9d2740e99768a6b647d45d19": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1960,
+        "search": "India street intitle:1960 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3bb197792e367e2e93db05114cf4ea8763ab0593c94089197bc048df917de18c": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1960,
+        "search": "train intitle:1960 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "0ea2ac092a1dc214e51f35c4c5135b67269161f73d0e44f2d274c4aef5fa322a": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1935,
+        "search": "Fortepan 1935 market filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "cacb57ab156437363b664509edfdd8e723055aba7cd2179e45d9a9cbafb7db87": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1935,
+        "search": "Japan market intitle:1935 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9ec5609e84c56ea847a23b55931a381d5676d632e6009a7857cd0ab884053cd0": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1935,
+        "search": "fashion intitle:1935 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "98483c7ca601f34571f5fcca8b152a507b1b5bd2bd3efbb0e7346d0d38a56a8c": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1980,
+        "search": "Fortepan 1980 train filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "547f97bca05eeda782924f6e643eeeaac7fcca877bc2a1cc7e1f9c641812b389": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1980,
+        "search": "Africa train intitle:1980 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "dfa6964f4b89b16af5b6d03e59285af62e081a5e05d6c05154b36c247665e590": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1980,
+        "search": "family intitle:1980 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e8c2a6f5bdbdc1fd42e2c4a3ac2730c3b1ddabddd9606480824f0fea45354b77": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1955,
+        "search": "Fortepan 1955 fashion filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e7bffeae79b83c6ef41c6e04bdd29135fa261a033cf500c318bf59d086d7455e": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1955,
+        "search": "Brazil fashion intitle:1955 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f569fc9f4902b5e91ce9ea557480a59e9a2ff807abf9c46e50ee4798ceec695a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1955,
+        "search": "cars intitle:1955 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "a83b37cf07d3a74ce88140a642875497ad09735de8894cf4612920f68e3afe10": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1970,
+        "search": "Fortepan 1970 family filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "eba00f145754ed94eff683a6421b43ece909fc2add6235bccc6237e72147f072": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1970,
+        "search": "London family intitle:1970 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6a34e5c04bfe138b9a92d1a5c5cfc58ec86be4fb9652d63726e4f3c18d0b3c0c": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1970,
+        "search": "music intitle:1970 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "7c4bdaadfe7b2a94a08fd8e8b3b2f1a4f6cec5a6cc113824b2f0ff4de1eb68ac": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1940,
+        "search": "Fortepan 1940 cars filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5ffde89749436efe3300de21a8dd583653c94c46630c9867aca411412dcf4fbc": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1940,
+        "search": "France cars intitle:1940 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "7cf73613466a532b265003d3b198123bab13d86e3ba6c37db973af4298e0ae46": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1940,
+        "search": "technology intitle:1940 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6425bd62fd7ee4168be4a036dce70035d9a83dcb3f8e618340fbb7abb899a5ef": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1990,
+        "search": "Fortepan 1990 music filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4d6b9f194235a226967c87ff1d30957e3db0b79d6e7106d239f957a1f9647894": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1990,
+        "search": "Australia music intitle:1990 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c49f7defc79ec6ec434e2f1ef390b054c7cb3f23b20ee8ef945b1e5ba2f4c5a5": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1990,
+        "search": "street intitle:1990 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "758c80988aba0f8ea059875bc618b2e712bfd0fcd28b339d62e3c4788977f8ba": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1910,
+        "search": "Fortepan 1910 technology filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "21f6371fdfce7e1757ab36fb96cf5d3804095ae45467896b208345cc87a65b67": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1910,
+        "search": "Mexico technology intitle:1910 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3297e298f82f1cf933de590d9f7d4e3fcf8a55fb516387e61a21a4b7f14e5ef0": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1910,
+        "search": "market intitle:1910 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "17cdf13e18d0d574658e3501a7f98cceea14ff47d7a4da5632d51b29c780af1e": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 2000,
+        "search": "Fortepan 2000 street filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4117b57d3b9db7ad2eb75ecc155df37aa9b05891a753aa21685f12132bb46e4a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2000,
+        "search": "China street intitle:2000 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6c590096cb18f000c4a3cded1fda670b8a98abd7720e4fff188a2d1c52ba1320": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2000,
+        "search": "train intitle:2000 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c84ec4f7b2ef6b75e411fc905ca9f2dca1f19f808a1926caa5a4d40009ed3670": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1925,
+        "search": "Fortepan 1925 market filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "107a3dab59ef1502ff87d4fb0db2f9e15bc831abfc27828f0b2dbaa49248df08": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1925,
+        "search": "New York market intitle:1925 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3dd3af27474257a6b6891d4e92aef22ca03343b469b3bdd36ceaa8d451901278": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1925,
+        "search": "fashion intitle:1925 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d3347346166b2cb99823b36441c17b225722cc16977498b95728daa9e70d4253": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 2010,
+        "search": "Fortepan 2010 train filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6f37a736be5c933127f36d6e3b58cf00c04cf6e723d05eb1893605d8c57ec3c6": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 2010,
+        "search": "Singapore train intitle:2010 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "98d3e3ed5f22e800e528e9fb90608e17600226835155dc70d941d337df768061": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2010,
+        "search": "family intitle:2010 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6b5990a7c3e8bd1b05adcf8a63e73bf5e1bbbd49c325f3f20d1d93dfde68d8b1": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1905,
+        "search": "Fortepan 1905 fashion filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5e18c30a2b95c03a1d01a1abd5ecb054982ea0b43112ee24ca76ddb4ad881f92": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1905,
+        "search": "Egypt fashion intitle:1905 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "39e658d2ec8db133f6df25c4bfb343b38f31c94502d1968ebdcb63488c46bc20": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1905,
+        "search": "cars intitle:1905 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9c4eee1719d3311d548d90a0e4fcdc35ac0e3a661376b3e22e77301a6840f9c7": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1967,
+        "search": "Fortepan 1967 family filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "bb165a9a92260e6602e23b18e7abff8616bf7fb41d7364b48fb7487e0112f052": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1967,
+        "search": "Canada family intitle:1967 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "bf445497247d9cdc77b0943fcbff81ed6ade13a2cffd48be4e69e859d66ae064": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1967,
+        "search": "music intitle:1967 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4411db2690c1d0492497e9a1bbe51a208b41ac0cdd549194e491fb23b7b99a4a": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1948,
+        "search": "Fortepan 1948 cars filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "596a9a49643bee2288827dadb50af9850773ea953b466a5dd34ce48697d051c5": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1948,
+        "search": "Netherlands cars intitle:1948 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d6e6b328a43bf471cfcbd3bf03f70e7f4c2a9ce2ba0a22fdc3b5e72ebed17540": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1948,
+        "search": "technology intitle:1948 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "55f1fa59eb3a05ed52659da12aaefa25b471b7c1fce93dfc8259d195f261ee58": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1985,
+        "search": "Fortepan 1985 music filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9779b59936db99bffe9b3abe41c676b87925c95963529fd2b978f9899c897522": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1985,
+        "search": "India music intitle:1985 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d2c8e6b6172be8740cf8f387ab425d1b13f5552aea12b508c1f11e0deebea06d": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1985,
+        "search": "street intitle:1985 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b16fbed6d80b1cb12c327028c289e9093ef0d196ca790fb74bbb4213c6a60ee9": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1950,
+        "search": "Fortepan 1950 technology filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "fa497eea0fd1c70007433b6706168117e80c1037f9cb55d2e241735eb194ecb7": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1950,
+        "search": "Japan technology intitle:1950 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "12e1cc3eccf20f27f2d8063a6fae6ab83ec770aa160f5958bc3e5ec3a0b22ebe": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1950,
+        "search": "market intitle:1950 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9a6c8c10cde9d5ac85f9e026266c1835c1e2c9ee2cc7d9264b7c7c0bba0b7d9c": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1975,
+        "search": "Fortepan 1975 street filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "90e75dde507460ceac2b5d6788fb67f73b6858683b7be1a849ff5dfc1ca92eb4": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1975,
+        "search": "Africa street intitle:1975 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "719d606e4c3f9763f217f5b0397bf1924bf1011c6b8e8c1df6acc89664919ae8": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1975,
+        "search": "train intitle:1975 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d9052cb68885dbf3838b293327de7b99bcc1e17be46dca1377b481c678ca723c": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1995,
+        "search": "Fortepan 1995 market filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "abd31f739b7cbf550f390ebe0d9442ef5f1d8c2e1f79d24232805d8ab5995962": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1995,
+        "search": "Brazil market intitle:1995 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d109f71d9f37313d536238fa24859971f1dedf54d10f8466de3c86c334ba5407": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1995,
+        "search": "fashion intitle:1995 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "99a4843c0cdba21f9983845db9ae6a30aa257a0f518dabfd7b97d4b4e4a36f61": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1915,
+        "search": "Fortepan 1915 train filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "74ae8a7b3f14432efa804e74ab0a6f453075b611bb0b5989beeb2a0745093972": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1915,
+        "search": "London train intitle:1915 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "1d8c7ebef42da9b71d151c7d0e115881d526f14f58d6d819f99e80edf8e8cd15": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1915,
+        "search": "family intitle:1915 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b97c360e3616b67c8d6a015ad06fbc458d05535ffa3c37de65cdfcc5e0cc293d": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 2005,
+        "search": "Fortepan 2005 fashion filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8d965b8e13172e9b390c6d767d072edcc4f5b148e66441d95434c9b8b08aefa6": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2005,
+        "search": "France fashion intitle:2005 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "aaeb16c9c7c8600f050bce54b3399448353790899fcfe692685f6570d0e46700": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2005,
+        "search": "cars intitle:2005 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ed1ffa0227f47d7f7a7486ecad7f93c89314d0591faffaee11b20c6fc67b4b47": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1920,
+        "search": "Fortepan 1920 family filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3f45e734246eb52ccd4f1ac02a0830d9e34ebfbaf8ea8bc2850a545519197032": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1920,
+        "search": "Australia family intitle:1920 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "cd1371d1a074b6fa56e83c547c784ed169d562b35e35c8b6da21b4e7db1ab1a1": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1920,
+        "search": "music intitle:1920 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "21dba17124f2d8f7735d05483209eef17040d53a89f47e6f32562f5ebdb9b4dc": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 2015,
+        "search": "Fortepan 2015 cars filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9e698ffd3dc1da24a4665c71c4c57dd5f2a8807585da9d65a3b3d9436ae91fbb": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 2015,
+        "search": "Mexico cars intitle:2015 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f3e37b0fd7aae89b1f4ff3360c75ac7a0785ec73a740162433e4a19ccbcb731e": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2015,
+        "search": "technology intitle:2015 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f0039480ac716dd6bf83cc255ebb9be8c69a4079fc0428175591e78cd8ac180e": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1900,
+        "search": "Fortepan 1900 music filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "320d7faa43121a829fbfde217c905e250eafcad8b06e670626d69efe2b4a5d75": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1900,
+        "search": "China music intitle:1900 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "600cd34c8383fa89137a50288962bff9424cd8263a9ccd423ae4e74706427c7c": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1900,
+        "search": "street intitle:1900 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8a69590ae20cf0ec6fcde8bfe9d187373b6e2551b98a3ff3674275e20e7aa050": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1930,
+        "search": "Fortepan 1930 technology filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d615d6f6e0886619783b901319c636d0c07d3408d557d59e6c69fa70233c285f": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1930,
+        "search": "New York technology intitle:1930 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "91ee28d9ed1f100e5220de932b171971fe929b6e874ae6a7987d0f98dc6393de": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1930,
+        "search": "market intitle:1930 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "02921304d3e30bcdf18904eb7275e54ee1265223d16ec0fa8c25695c7f818a9d": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1945,
+        "search": "Fortepan 1945 street filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5b7709e558f82baf1d9d9593242bd2647e0365b11e34147e85be154ad9622f73": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1945,
+        "search": "Singapore street intitle:1945 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b68d7de9af1f64564c5af9ec419d0f48a8023e2c451b84e4fa01ba2afc072110": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1945,
+        "search": "train intitle:1945 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e48728b454cc05ce2e017ef5da1608b6c8714bd0bb5276d8b124f0ae8618a598": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1958,
+        "search": "Fortepan 1958 market filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "40c1e4b0be8256eb120afd19c3fbac27df6b5e06827bcc4ca10b1934ed148db0": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1958,
+        "search": "Egypt market intitle:1958 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5c5ef0519a7e6e28a84b94f098f499523097b3d5d93b19c80182da8509f07f7f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1958,
+        "search": "fashion intitle:1958 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ce59a559c3564d3a06bd9bd2b20702a152f7e2ea62a70530b0e80f2f515a3d62": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1965,
+        "search": "Fortepan 1965 train filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "60388523398b9dfa1928b0ffb57b3a18df7465e36d7891aca2f411413b2be2ec": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1965,
+        "search": "Canada train intitle:1965 filetype:bitmap"
+      },
+      "source": "commons"
+    }
+  },
+  "failures": []
+}

@@ -7,9 +7,11 @@ import rawPhotos from "@/data/photos.json";
 import { Asterisk, Arrow, Expand, TimeMark } from "./icons";
 import { HomeScreen } from "./home-screen";
 import { ResultsScreen } from "./results-screen";
+import { openCatalog, type PhotoCatalog } from "@/lib/catalog";
 import {
   MIN_YEAR,
   MAX_YEAR,
+  RECENT_LIMIT,
   EMPTY_PROGRESS,
   clampYear,
   beginTrip,
@@ -25,7 +27,7 @@ import {
   type Progress,
 } from "@/lib/game";
 
-const photos = rawPhotos as Photo[];
+const seedPhotos = rawPhotos as Photo[];
 const STORAGE_KEY = "time-traveler-v1";
 const number = (n: number) => n.toLocaleString("en-US");
 type Modal = "help" | "credits" | "photo" | null;
@@ -90,6 +92,8 @@ function PhotoFrame({
           <img
             key={attempt}
             src={`${photo.src}${attempt ? `?retry=${attempt}` : ""}`}
+            srcSet={attempt ? undefined : photo.srcSet}
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 90vw, 1100px"
             alt={
               revealed
                 ? photo.title
@@ -122,6 +126,11 @@ function PhotoFrame({
 }
 
 export default function TimeTraveler() {
+  const [photos, setPhotos] = useState<Photo[]>(seedPhotos);
+  const [libraryCount, setLibraryCount] = useState(seedPhotos.length);
+  const catalog = useRef<PhotoCatalog | null>(null);
+  const canSave = useRef(false);
+  const starting = useRef(false);
   const [progress, setProgress] = useState<Progress>(EMPTY_PROGRESS);
   const [ready, setReady] = useState(false);
   const [screen, setScreen] = useState<"home" | "game">("home");
@@ -144,24 +153,61 @@ export default function TimeTraveler() {
     : null;
   const result = game?.phase === "reveal" ? game.answers.at(-1) : null;
   const score = totalScore(game?.answers ?? []);
-  const nextPhotoSrc = photos.find(
+  const nextPhoto = photos.find(
     (p) => p.id === game?.photoIds[roundIndex + 1],
-  )?.src;
+  );
+  const nextPhotoSrc = nextPhoto?.src;
+  const nextPhotoSrcSet = nextPhoto?.srcSet;
 
   useEffect(() => {
-    let stored: Progress = { ...EMPTY_PROGRESS };
-    try {
-      stored = parseProgress(localStorage.getItem(STORAGE_KEY), photos);
-    } catch {
-      /* Storage is optional in private browsing. */
+    let cancelled = false;
+    async function restore() {
+      const library = await openCatalog(seedPhotos);
+      let raw: string | null = null;
+      try {
+        raw = localStorage.getItem(STORAGE_KEY);
+      } catch {
+        /* Storage is optional. */
+      }
+      let stored = parseProgress(raw, library.entries);
+      let restored: Photo[] = [];
+      try {
+        if (stored.game) restored = await library.load(stored.game.photoIds);
+        canSave.current = true;
+        if (!library.available && raw) {
+          try {
+            const ids = JSON.parse(raw)?.game?.photoIds;
+            if (
+              Array.isArray(ids) &&
+              ids.some((id) => !library.entries.some((p) => p.id === id))
+            )
+              canSave.current = false;
+          } catch {
+            /* Invalid sessions are safely replaced. */
+          }
+        }
+      } catch {
+        // Preserve the persisted trip during a temporary catalog outage. A new
+        // trip explicitly replaces it, while the curated fallback stays usable.
+        stored = { ...stored, game: null };
+      }
+      if (cancelled) return;
+      catalog.current = library;
+      setLibraryCount(library.total);
+      setPhotos([
+        ...seedPhotos,
+        ...restored.filter((p) => !seedPhotos.some((s) => s.id === p.id)),
+      ]);
+      setProgress(stored);
+      setReady(true);
     }
-    // The first client effect restores a validated local session after static rendering.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setProgress(stored);
-    setReady(true);
+    void restore();
+    return () => {
+      cancelled = true;
+    };
   }, []);
   useEffect(() => {
-    if (!ready) return;
+    if (!ready || !canSave.current) return;
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
     } catch {
@@ -175,20 +221,43 @@ export default function TimeTraveler() {
   useEffect(() => {
     if (screen === "game" && nextPhotoSrc) {
       const image = new Image();
+      image.sizes = "(max-width: 600px) 100vw, (max-width: 900px) 90vw, 1100px";
+      if (nextPhotoSrcSet) image.srcset = nextPhotoSrcSet;
       image.src = nextPhotoSrc;
     }
-  }, [screen, nextPhotoSrc]);
+  }, [screen, nextPhotoSrc, nextPhotoSrcSet]);
   useEffect(() => {
     if (screen === "game") heading.current?.focus({ preventScroll: true });
   }, [screen, game?.phase, roundIndex]);
 
-  function start() {
-    setProgress((p) => beginTrip(p, photos));
+  async function start() {
+    if (starting.current) return;
+    starting.current = true;
+    setReady(false);
+    const library = catalog.current;
+    let selected: Photo[];
+    try {
+      selected = library
+        ? await library.load(selectPhotos(library.entries, progress.recent))
+        : seedPhotos;
+    } catch {
+      selected = seedPhotos;
+    }
+    setPhotos([
+      ...seedPhotos,
+      ...selected.filter((p) => !seedPhotos.some((s) => s.id === p.id)),
+    ]);
+    canSave.current = true;
+    setProgress((p) =>
+      beginTrip(p, selected, library?.total ?? seedPhotos.length),
+    );
     setCopied(false);
     setCopyText(false);
     setYearDraft(null);
     setLoadedPhotoId(null);
     setScreen("game");
+    setReady(true);
+    starting.current = false;
     window.scrollTo({ top: 0 });
   }
   function updateGame(updater: (g: Game) => Game) {
@@ -210,23 +279,46 @@ export default function TimeTraveler() {
     setProgress(advanceRound);
     window.scrollTo({ top: 0 });
   }
-  function replacePhoto() {
-    if (!game || game.phase !== "guess") return;
-    const replacement = selectPhotos(
-      photos.filter((p) => !game.photoIds.includes(p.id)),
-      progress.recent,
-    )[0];
-    if (replacement)
+  async function replacePhoto() {
+    if (!game || game.phase !== "guess" || starting.current) return;
+    starting.current = true;
+    const currentGame = game;
+    const library = catalog.current;
+    let candidate: Photo | undefined;
+    try {
+      const id = selectPhotos(
+        (library?.entries ?? seedPhotos).filter(
+          (p) => !game.photoIds.includes(p.id),
+        ),
+        progress.recent,
+      )[0];
+      candidate = library
+        ? (await library.load([id]))[0]
+        : seedPhotos.find((p) => p.id === id);
+    } catch {
+      candidate = seedPhotos.find((p) => !game.photoIds.includes(p.id));
+    }
+    const replacement = candidate?.id;
+    if (replacement && candidate) {
+      setPhotos((p) =>
+        p.some((x) => x.id === replacement) ? p : [...p, candidate],
+      );
       setProgress((p) => ({
         ...p,
-        recent: [...p.recent, replacement].slice(-15),
-        game: {
-          ...p.game!,
-          photoIds: p.game!.photoIds.map((id, i) =>
-            i === roundIndex ? replacement : id,
-          ),
-        },
+        ...(p.game !== currentGame
+          ? {}
+          : {
+              recent: [...p.recent, replacement].slice(-RECENT_LIMIT),
+              game: {
+                ...p.game!,
+                photoIds: p.game!.photoIds.map((id, i) =>
+                  i === roundIndex ? replacement : id,
+                ),
+              },
+            }),
       }));
+    }
+    starting.current = false;
   }
   async function copyResults() {
     if (!game) return;
@@ -337,7 +429,7 @@ export default function TimeTraveler() {
               <div className="reveal-story">
                 <div>
                   <h3>{photo.title}</h3>
-                  <p>{photo.fact}</p>
+                  {photo.fact && <p>{photo.fact}</p>}
                 </div>
                 <div className="attribution">
                   <a
@@ -357,6 +449,7 @@ export default function TimeTraveler() {
                     >
                       {photo.license}
                     </a>
+                    {photo.modifications && <> · {photo.modifications}</>}
                   </span>
                 </div>
               </div>
@@ -573,7 +666,7 @@ export default function TimeTraveler() {
               sources intact.
             </h2>
             <p>
-              These {photos.length} photographs come from public archives and
+              These {libraryCount} photographs come from public archives and
               openly licensed collections. Capture years and rights are checked
               against the source records. Every reveal links to the original.
             </p>

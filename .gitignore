@@ -6,3 +6,5 @@ out/
 .DS_Store
 .env*
 test-results/
+.photo-library/
+public/library/images/

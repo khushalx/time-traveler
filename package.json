@@ -5,10 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",
+    "prebuild": "node scripts/photos/prepare.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test": "node --experimental-strip-types --test src/lib/game.test.ts"
+    "test": "node --experimental-strip-types --test src/lib/game.test.ts src/lib/catalog.test.ts scripts/photos/*.test.mjs",
+    "photos:import": "node scripts/photos/pipeline.mjs import",
+    "photos:validate": "node scripts/photos/pipeline.mjs validate",
+    "photos:stats": "node scripts/photos/pipeline.mjs stats",
+    "photos:review": "node scripts/photos/pipeline.mjs review",
+    "photos:screen": "node scripts/photos/pipeline.mjs screen",
+    "photos:restore": "node scripts/photos/pipeline.mjs restore",
+    "photos:publish": "node scripts/photos/pipeline.mjs publish"
   },
   "dependencies": {
     "next": "16.4.3",
@@ -17,12 +25,13 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.0",
-    "tailwindcss": "^4.1.0",
-    "typescript": "^5.9.0",
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "eslint": "^9.0.0",
-    "eslint-config-next": "16.4.3"
+    "eslint-config-next": "16.4.3",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.9.0"
   }
 }

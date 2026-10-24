@@ -55,7 +55,7 @@ export function ResultsScreen({
             <li className="result-round" key={a.photoId}>
               <div className="result-image">
                 <img
-                  src={p.src}
+                  src={p.thumbnailSrc ?? p.src}
                   alt={p.title}
                   width={p.width}
                   height={p.height}

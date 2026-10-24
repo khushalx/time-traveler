@@ -1,6 +1,7 @@
 export const ROUND_COUNT = 5;
 export const MIN_YEAR = 1900;
 export const MAX_YEAR = 2020;
+export const RECENT_LIMIT = 250;
 
 export type Photo = {
   id: string;
@@ -15,7 +16,21 @@ export type Photo = {
   category: string;
   width: number;
   height: number;
+  thumbnailSrc?: string;
+  srcSet?: string;
+  sourceName?: string;
+  region?: string;
+  location?: string;
+  difficulty?: "easy" | "medium" | "hard";
+  quality?: number;
+  dateEvidence?: string;
+  yearConfidence?: "verified";
+  modifications?: string;
 };
+export type PhotoChoice = Pick<Photo, "id"> &
+  Partial<
+    Pick<Photo, "year" | "category" | "region" | "difficulty" | "quality">
+  >;
 export type Answer = {
   photoId: string;
   guess: number;
@@ -57,27 +72,66 @@ export function clampYear(year: number) {
 }
 
 export function selectPhotos(
-  photos: Pick<Photo, "id">[],
+  photos: PhotoChoice[],
   recent: string[],
   random = Math.random,
 ): string[] {
-  const shuffle = (items: string[]) => {
-    const a = [...items];
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
+  const seen = new Set(recent);
+  const distinct = [...new Map(photos.map((p) => [p.id, p])).values()];
+  const fresh = distinct.filter((p) => !seen.has(p.id));
+  const selected: PhotoChoice[] = [];
+  while (fresh.length && selected.length < ROUND_COUNT) {
+    // Prefer a new subject, decade, region and difficulty when supplied. Apply
+    // a soft quality preference without starving smaller archive collections.
+    const weight = (p: PhotoChoice) => {
+      const count = (key: "category" | "region" | "difficulty") =>
+        p[key] && p[key] !== "Unspecified"
+          ? selected.filter((s) => s[key] === p[key]).length
+          : 0;
+      const decadeCount = p.year
+        ? selected.filter(
+            (s) =>
+              s.year && Math.floor(s.year / 10) === Math.floor(p.year! / 10),
+          ).length
+        : 0;
+      return (
+        (0.7 + Math.max(0, Math.min(1, p.quality ?? 0.8)) * 0.3) /
+        ((1 + 5 * count("category")) *
+          (1 + 4 * decadeCount) *
+          (1 + 2 * count("region")) *
+          (1 + count("difficulty")))
+      );
+    };
+    let pool = fresh;
+    // Hard guard against five of one subject whenever another is available.
+    if (
+      selected.length === ROUND_COUNT - 1 &&
+      selected.every((p) => p.category && p.category === selected[0].category)
+    ) {
+      const varied = fresh.filter((p) => p.category !== selected[0].category);
+      if (varied.length) pool = varied;
     }
-    return a;
-  };
-  const fresh = shuffle(
-    photos.filter((p) => !recent.includes(p.id)).map((p) => p.id),
-  );
+    const weights = pool.map(weight);
+    let target =
+      Math.max(0, Math.min(0.999999999, random())) *
+      weights.reduce((a, b) => a + b, 0);
+    let chosen = pool[pool.length - 1];
+    for (let i = 0; i < pool.length; i++) {
+      target -= weights[i];
+      if (target < 0) {
+        chosen = pool[i];
+        break;
+      }
+    }
+    selected.push(chosen);
+    fresh.splice(fresh.indexOf(chosen), 1);
+  }
   // If the archive is nearly exhausted, use the least recently seen photographs first.
-  const old = photos
+  const old = distinct
     .filter((p) => recent.includes(p.id))
     .map((p) => p.id)
     .sort((a, b) => recent.indexOf(a) - recent.indexOf(b));
-  return [...fresh, ...old].slice(0, ROUND_COUNT);
+  return [...selected.map((p) => p.id), ...old].slice(0, ROUND_COUNT);
 }
 export function newGame(photos: Photo[], recent: string[]): Game {
   return {
@@ -123,13 +177,17 @@ export function advanceRound(progress: Progress): Progress {
   return { ...progress, game: { ...game, phase: "guess", guess: 1960 } };
 }
 
-export function beginTrip(progress: Progress, photos: Photo[]): Progress {
+export function beginTrip(
+  progress: Progress,
+  photos: Photo[],
+  catalogSize = photos.length,
+): Progress {
   const game = newGame(photos, progress.recent);
   return {
     ...progress,
     game,
     recent: [...progress.recent, ...game.photoIds].slice(
-      -Math.min(20, photos.length - ROUND_COUNT),
+      -Math.max(1, Math.min(RECENT_LIMIT, catalogSize - ROUND_COUNT)),
     ),
   };
 }
@@ -165,7 +223,10 @@ export function shareResults(answers: Answer[]) {
   return `TIME TRAVELER\n${totalScore(answers).toLocaleString("en-US")} / 5,000 points\n\n${answers.map((a, i) => `${i + 1}. ${a.guess} → ${a.actual} · ${a.points} pts`).join("\n")}\n\nOne photo. One guess. Travel through time.`;
 }
 
-export function parseProgress(raw: string | null, photos: Photo[]): Progress {
+export function parseProgress(
+  raw: string | null,
+  photos: Pick<Photo, "id" | "year">[],
+): Progress {
   if (!raw) return { ...EMPTY_PROGRESS };
   try {
     const value = JSON.parse(raw) as Progress;
@@ -186,7 +247,7 @@ export function parseProgress(raw: string | null, photos: Photo[]): Progress {
       played: value.played,
       recent: value.recent
         .filter((id) => typeof id === "string" && ids.has(id))
-        .slice(-20),
+        .slice(-RECENT_LIMIT),
     };
     const g = value.game;
     if (!g) return clean;

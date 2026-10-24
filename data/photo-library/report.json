@@ -1,0 +1,64 @@
+{
+  "policyVersion": 1,
+  "candidatesDiscovered": 2593,
+  "importedApproved": 251,
+  "existingCurated": 26,
+  "totalPlayable": 277,
+  "rejected": 817,
+  "pendingReview": 1525,
+  "duplicatesRemoved": 6,
+  "byDecade": {
+    "1900s": 5,
+    "1910s": 3,
+    "1920s": 5,
+    "1930s": 6,
+    "1940s": 25,
+    "1950s": 14,
+    "1960s": 67,
+    "1970s": 57,
+    "1980s": 12,
+    "1990s": 18,
+    "2000s": 11,
+    "2010s": 28
+  },
+  "byCategory": {
+    "Architecture": 24,
+    "Everyday life": 85,
+    "Fashion": 14,
+    "Music & culture": 7,
+    "Street life": 59,
+    "Technology": 3,
+    "Transport": 59
+  },
+  "bySource": {
+    "Wikimedia Commons": 251
+  },
+  "byRegion": {
+    "Africa": 4,
+    "East Asia": 11,
+    "Europe": 153,
+    "Latin America": 3,
+    "North America": 16,
+    "Oceania": 4,
+    "Southeast Asia": 3,
+    "Unspecified": 57
+  },
+  "reviewReasons": {
+    "ambiguous-or-missing-capture-date": 810,
+    "conflicting-or-approximate-context-date": 418,
+    "discovery-year-conflicts-with-capture-date": 1575,
+    "extreme-aspect-ratio": 56,
+    "low-source-resolution": 449,
+    "source-restrictions-require-review": 78,
+    "title-date-conflicts-with-capture-date": 552,
+    "unclear-or-incompatible-rights": 970,
+    "unsuitable-or-non-photographic-subject": 195,
+    "Visual review rejected: redundant shoot coverage, visible dates or watermarks, insufficient period context, poor clarity, or non-photographic subject.": 167,
+    "visual-duplicate": 6
+  },
+  "failures": [],
+  "sourceStatus": {
+    "smithsonian": "optional key missing",
+    "europeana": "optional key missing"
+  }
+}
