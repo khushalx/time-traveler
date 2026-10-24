@@ -1207,7 +1207,7 @@ dialog::backdrop {
     padding-bottom: 36px;
   }
   .home-copy h1 {
-    font-size: clamp(76px, 11.8vw, 100px);
+    font-size: clamp(68px, 9.5vw, 82px);
   }
   .home-copy > .eyebrow {
     margin-bottom: 22px;
@@ -1323,7 +1323,7 @@ dialog::backdrop {
     font-size: 104px;
   }
 }
-@media (min-width: 700px) and (max-width: 900px) {
+@media (min-width: 700px) and (max-width: 900px) and (max-height: 850px) {
   .home-main {
     align-items: flex-start;
   }

@@ -10,7 +10,7 @@ The overhaul keeps the existing Next.js project, routes, dependencies, 26 verifi
 
 - Charcoal backgrounds, warm white text, readable secondary gray, and restrained antique gold actions and scoring.
 - Self-hosted Barlow Condensed 700/800, DM Sans 400–700, and IBM Plex Mono 500/600; licenses included with the fonts.
-- Two-column editorial homepage on desktop and tablet, stacked on phones, with two existing authentic archive photographs.
+- Two-column editorial homepage on desktop and landscape tablets, stacked on phones and tall tablets, with two existing authentic archive photographs.
 - Aspect-ratio-aware gameplay photographs displayed in full, a 1900–2020 native timeline with a large thumb and selected track, visible focus, direct entry, and keyboard adjustment.
 - Photo-visible reveal with a large actual year, guessed year, distance, points, historical fact, original source, and license.
 - Dominant final score, personal best, and a five-photo reel that becomes a compact list on smaller viewports.
