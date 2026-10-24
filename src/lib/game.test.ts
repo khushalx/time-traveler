@@ -10,8 +10,67 @@ import {
   selectPhotos,
   shareResults,
   totalScore,
+  newGame,
+  submitGuess,
+  advanceRound,
+  beginTrip,
   type Photo,
 } from "./game.ts";
+
+test("submitting uses the exact selected year and rejects duplicates and wrong-photo submissions", () => {
+  const game = newGame(photos, []);
+  const photo = photos.find((p) => p.id === game.photoIds[0])!;
+  const submitted = submitGuess(game, photo, 1984);
+  assert.equal(submitted.phase, "reveal");
+  assert.equal(submitted.answers.length, 1);
+  assert.equal(submitted.answers[0].guess, 1984);
+  assert.equal(submitted.answers[0].actual, photo.year);
+  assert.equal(submitted.answers[0].points, scoreGuess(1984, photo.year));
+  assert.equal(submitGuess(submitted, photo, 2000), submitted);
+  const wrong = photos.find((p) => p.id !== photo.id)!;
+  assert.equal(submitGuess(game, wrong, 1984), game);
+});
+
+test("five rounds advance in order, total correctly, and complete only once", () => {
+  let progress = beginTrip({ ...EMPTY_PROGRESS }, photos);
+  const ids = [...progress.game!.photoIds];
+  for (let i = 0; i < 5; i++) {
+    const photo = photos.find((p) => p.id === ids[i])!;
+    progress = {
+      ...progress,
+      game: submitGuess(progress.game!, photo, photo.year),
+    };
+    assert.equal(progress.game!.answers.length, i + 1);
+    progress = advanceRound(progress);
+    if (i < 4) {
+      assert.equal(progress.game!.phase, "guess");
+      assert.equal(progress.game!.photoIds[i + 1], ids[i + 1]);
+      assert.equal(progress.game!.guess, 1960);
+    }
+  }
+  assert.equal(progress.game!.phase, "results");
+  assert.equal(totalScore(progress.game!.answers), 5000);
+  assert.equal(progress.best, 5000);
+  assert.equal(progress.played, 1);
+  assert.equal(advanceRound(progress), progress);
+});
+
+test("replay clears answers and score, preserves best and completed count, and avoids recent photos", () => {
+  const old = {
+    ...EMPTY_PROGRESS,
+    best: 3820,
+    played: 7,
+    recent: photos.slice(0, 5).map((p) => p.id),
+  };
+  const replay = beginTrip(old, photos);
+  assert.equal(replay.best, 3820);
+  assert.equal(replay.played, 7);
+  assert.equal(replay.game!.phase, "guess");
+  assert.equal(replay.game!.guess, 1960);
+  assert.equal(totalScore(replay.game!.answers), 0);
+  assert.ok(replay.game!.photoIds.every((id) => !old.recent.includes(id)));
+  assert.equal(new Set(replay.game!.photoIds).size, 5);
+});
 
 const photos: Photo[] = Array.from({ length: 25 }, (_, i) => ({
   id: `photo-${i}`,

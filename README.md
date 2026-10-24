@@ -31,13 +31,17 @@ Best score, completed-game count, recent photograph IDs, and the current session
 
 All playable photographs are local, optimized WebP files. `src/data/photos.json` contains capture year, creator, source link, license, and reveal fact. See `docs/photo-sources.md` for provenance and rights evidence. New entries need a documented capture year (no ranges), reusable license, intact attribution, a verified fact, and visual inspection for answer-revealing dates. No AI-generated photographs or invented metadata are used. The home print collage crops its previews; game images display in full using `object-fit: contain`.
 
-The fonts Archivo Narrow, Instrument Sans, and IBM Plex Mono are self-hosted. Their SIL Open Font Licenses are included in `public/fonts/`.
+The active fonts Barlow Condensed, DM Sans, and IBM Plex Mono are self-hosted. Their SIL Open Font Licenses are included in `public/fonts/`.
 
 ## Structure
 
-- `src/lib/game.ts`: scoring, selection, results text, session validation; pure functions tested independently.
-- `src/components/time-traveler.tsx`: home, single-player game state, reveal, results, dialogs, and persistence.
+- `src/lib/game.ts`: scoring, selection, guarded submission/progression, replay, results text, and session validation; pure functions tested independently.
+- `src/components/time-traveler.tsx`: single-player state, timeline, reveal, dialogs, image recovery, and persistence.
+- `src/components/home-screen.tsx`: editorial home composition and authentic photo previews.
+- `src/components/results-screen.tsx`: final score, responsive five-photo breakdown, and sharing controls.
 - `src/app/globals.css`: responsive editorial design, accessible states, reduced-motion handling.
 - `src/data/photos.json`: independent content collection, ready for future themed collections or a shared daily seed.
 
 Future room, daily, leaderboard, and timer features can reuse the scoring and photo types; none is included in V1. All current game state stays on the device.
+
+See `docs/ui-overhaul.md` for the dark cinematic redesign and its verification record.

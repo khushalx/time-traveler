@@ -87,6 +87,52 @@ export function newGame(photos: Photo[], recent: string[]): Game {
     phase: "guess",
   };
 }
+
+/** A state-level guard makes repeated clicks or queued submissions idempotent. */
+export function submitGuess(game: Game, photo: Photo, year: number): Game {
+  if (game.phase !== "guess" || game.photoIds[game.answers.length] !== photo.id)
+    return game;
+  const guess = clampYear(year);
+  return {
+    ...game,
+    guess,
+    phase: "reveal",
+    answers: [
+      ...game.answers,
+      {
+        photoId: photo.id,
+        guess,
+        actual: photo.year,
+        points: scoreGuess(guess, photo.year),
+      },
+    ],
+  };
+}
+
+export function advanceRound(progress: Progress): Progress {
+  const game = progress.game;
+  if (!game || game.phase !== "reveal") return progress;
+  if (game.answers.length === ROUND_COUNT) {
+    return {
+      ...progress,
+      best: Math.max(progress.best, totalScore(game.answers)),
+      played: progress.played + 1,
+      game: { ...game, phase: "results" },
+    };
+  }
+  return { ...progress, game: { ...game, phase: "guess", guess: 1960 } };
+}
+
+export function beginTrip(progress: Progress, photos: Photo[]): Progress {
+  const game = newGame(photos, progress.recent);
+  return {
+    ...progress,
+    game,
+    recent: [...progress.recent, ...game.photoIds].slice(
+      -Math.min(20, photos.length - ROUND_COUNT),
+    ),
+  };
+}
 export function revealMessage(guess: number, actual: number) {
   const distance = Math.abs(guess - actual);
   if (distance === 0) return "Right on the money.";

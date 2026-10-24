@@ -4,10 +4,12 @@
 
 - ESLint with Next.js Core Web Vitals and TypeScript rules.
 - Production static export with Next.js 16, including TypeScript checking.
-- Eight Node tests covering the exact scoring curve, score symmetry, five unique selections, recent-photo avoidance, bounded year input, reveal wording, validated session restoration, invalid/tampered session recovery, results text, and the real archive's metadata and local WebP assets.
+- Eleven Node tests covering the exact scoring curve, score symmetry, five unique selections, recent-photo avoidance, bounded year input, reveal wording, validated session restoration, invalid/tampered session recovery, results text, the real archive's metadata and local WebP assets, guarded submissions, five-round progression, and replay.
 - All 26 photographs decoded and visually inspected during curation. Dimensions match the metadata. Dating and rights evidence is in `photo-sources.md`.
 
-## Browser verification
+## Original browser verification
+
+The subsequent dark-theme overhaul and its five-width browser review are documented in `ui-overhaul.md`.
 
 Used the in-app browser with real embedded document viewports at 1440 × 1050, 390 × 844, and 320 × 667, plus the normal preview viewport.
 

@@ -24,6 +24,28 @@ export function Arrow({
     </svg>
   );
 }
+export function TimeMark() {
+  return (
+    <svg
+      width="30"
+      height="34"
+      viewBox="0 0 30 34"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M3 4h24M10 4v26M20 4v26M3 30h24"
+        stroke="currentColor"
+        strokeWidth="3"
+      />
+      <path
+        d="m10 11 10 12m0-12L10 23"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+}
 export function Asterisk({ className = "" }: { className?: string }) {
   return (
     <svg

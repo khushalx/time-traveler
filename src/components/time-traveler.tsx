@@ -4,18 +4,19 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import rawPhotos from "@/data/photos.json";
-import { Asterisk, Arrow, Expand } from "./icons";
+import { Asterisk, Arrow, Expand, TimeMark } from "./icons";
+import { HomeScreen } from "./home-screen";
+import { ResultsScreen } from "./results-screen";
 import {
-  ROUND_COUNT,
   MIN_YEAR,
   MAX_YEAR,
   EMPTY_PROGRESS,
   clampYear,
-  newGame,
+  beginTrip,
+  advanceRound,
+  submitGuess,
   parseProgress,
-  performance,
   revealMessage,
-  scoreGuess,
   selectPhotos,
   shareResults,
   totalScore,
@@ -47,7 +48,10 @@ function PhotoFrame({
   );
   const [attempt, setAttempt] = useState(0);
   return (
-    <div className={`photo-frame ${status === "loaded" ? "is-loaded" : ""}`}>
+    <div
+      className={`photo-frame ${status === "loaded" ? "is-loaded" : ""} ${revealed ? "is-revealed" : ""}`}
+      style={{ "--photo-ratio": photo.width / photo.height } as CSSProperties}
+    >
       {status === "loading" && (
         <div className="photo-status" role="status">
           <span className="loading-mark" />
@@ -112,8 +116,6 @@ function PhotoFrame({
           )}
         </button>
       )}
-      <span className="print-corner corner-tl" />
-      <span className="print-corner corner-br" />
       <input type="hidden" data-photo-status={status} />
     </div>
   );
@@ -181,16 +183,7 @@ export default function TimeTraveler() {
   }, [screen, game?.phase, roundIndex]);
 
   function start() {
-    setProgress((p) => {
-      const g = newGame(photos, p.recent);
-      return {
-        ...p,
-        game: g,
-        recent: [...p.recent, ...g.photoIds].slice(
-          -Math.min(20, photos.length - ROUND_COUNT),
-        ),
-      };
-    });
+    setProgress((p) => beginTrip(p, photos));
     setCopied(false);
     setCopyText(false);
     setYearDraft(null);
@@ -208,35 +201,14 @@ export default function TimeTraveler() {
       yearDraft !== null && yearDraft.trim() ? Number(yearDraft) : game.guess,
     );
     setYearDraft(null);
-    updateGame((g) => ({
-      ...g,
-      guess,
-      phase: "reveal",
-      answers: [
-        ...g.answers,
-        {
-          photoId: photo.id,
-          guess,
-          actual: photo.year,
-          points: scoreGuess(guess, photo.year),
-        },
-      ],
-    }));
+    updateGame((g) => submitGuess(g, photo, guess));
+    window.scrollTo({ top: 0 });
   }
   function next() {
     if (!game || game.phase !== "reveal") return;
-    if (game.answers.length === ROUND_COUNT) {
-      setProgress((p) => ({
-        ...p,
-        best: Math.max(p.best, score),
-        played: p.played + 1,
-        game: { ...p.game!, phase: "results" },
-      }));
-    } else {
-      setLoadedPhotoId(null);
-      updateGame((g) => ({ ...g, phase: "guess", guess: 1960 }));
-    }
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setLoadedPhotoId(null);
+    setProgress(advanceRound);
+    window.scrollTo({ top: 0 });
   }
   function replacePhoto() {
     if (!game || game.phase !== "guess") return;
@@ -267,11 +239,6 @@ export default function TimeTraveler() {
     }
   }
   const activeGame = game && game.phase !== "results";
-  const cover = [
-    photos.find((p) => p.id === "london-1955") ?? photos[0],
-    photos.find((p) => p.id === "chicago-1942") ?? photos[1],
-    photos.find((p) => p.id === "fashion-1967") ?? photos[2],
-  ];
 
   return (
     <div
@@ -283,12 +250,20 @@ export default function TimeTraveler() {
           onClick={() => setScreen("home")}
           aria-label="Time Traveler home"
         >
-          <Asterisk />
-          <span>
-            TIME TRAVELER<span className="brand-period">™</span>
-          </span>
+          <TimeMark />
+          <span>TIME TRAVELER</span>
         </button>
-        <span className="header-note">A GAME OF THEN & NOW</span>
+        {screen === "game" && game?.phase !== "results" && game && (
+          <div className="header-game-status">
+            <span className="header-round">
+              ROUND <strong>{String(roundIndex + 1).padStart(2, "0")}</strong> /
+              05
+            </span>
+            <span className="header-score">
+              <strong>{number(score)}</strong> <span>POINTS</span>
+            </span>
+          </div>
+        )}
         <button className="help-button" onClick={() => setModal("help")}>
           <span>How to play</span>
           <span className="question-mark">?</span>
@@ -296,262 +271,26 @@ export default function TimeTraveler() {
       </header>
 
       {screen === "home" ? (
-        <main className="home-main">
-          <section className="home-hero" aria-labelledby="home-title">
-            <div className="home-copy">
-              <div className="eyebrow">
-                <span className="red-line" /> THE PAST IS A PLACE. TAKE A GUESS.
-              </div>
-              <h1 id="home-title">
-                TIME
-                <br />
-                <span>TRAVELER</span>
-                <span className="title-star" aria-hidden="true">
-                  ✳
-                </span>
-              </h1>
-              <h2>How well do you know the past?</h2>
-              <p className="home-description">
-                One photo. One guess.
-                <br className="mobile-break" /> Travel through time.
-              </p>
-              <button
-                className="primary-button start-button"
-                onClick={activeGame ? () => setScreen("game") : start}
-                disabled={!ready}
-              >
-                {activeGame ? "Continue your trip" : "Start playing"}
-                <Arrow />
-              </button>
-              {activeGame && (
-                <button className="new-trip-link text-link" onClick={start}>
-                  Or start a new trip
-                </button>
-              )}
-              <div className="game-promise">
-                <span>5 PHOTOS</span>
-                <span className="promise-dot" />
-                <span>NO TIME LIMIT</span>
-                <span className="promise-dot" />
-                <span>JUST YOUR INSTINCT</span>
-              </div>
-            </div>
-            <div
-              className="home-archive"
-              aria-label="A glimpse into the photographic archive"
-            >
-              <div className="archive-topline">
-                <span>FROM THE ARCHIVE</span>
-                <span>
-                  VOL. 001 <span className="small-cross">+</span>
-                </span>
-              </div>
-              <div className="photo-collage">
-                <figure className="archive-print print-back">
-                  <img
-                    src={cover[2].src}
-                    alt={cover[2].title}
-                    width={cover[2].width}
-                    height={cover[2].height}
-                    loading="eager"
-                  />
-                  <figcaption>
-                    <span>A MOMENT, PRESERVED.</span>
-                    <span>03 / TT</span>
-                  </figcaption>
-                </figure>
-                <figure className="archive-print print-main">
-                  <img
-                    src={cover[0].src}
-                    alt={cover[0].title}
-                    width={cover[0].width}
-                    height={cover[0].height}
-                    fetchPriority="high"
-                  />
-                  <figcaption>
-                    <span>EVERY PICTURE HAS A WHEN.</span>
-                    <span>01 / TT</span>
-                  </figcaption>
-                </figure>
-                <figure className="archive-print print-front">
-                  <img
-                    src={cover[1].src}
-                    alt={cover[1].title}
-                    width={cover[1].width}
-                    height={cover[1].height}
-                    loading="eager"
-                  />
-                  <figcaption>
-                    <span>WISH YOU WERE THEN.</span>
-                    <span>02 / TT</span>
-                  </figcaption>
-                </figure>
-                <div className="archive-stamp">
-                  <span>
-                    LOOK
-                    <br />
-                    CLOSER.
-                  </span>
-                  <Arrow diagonal />
-                </div>
-              </div>
-              <p className="archive-footnote">
-                Real photographs. Remarkable little moments.
-              </p>
-            </div>
-          </section>
-          <section
-            className="home-timeline"
-            aria-label="Photographic history from 1900 to 2020"
-          >
-            <div className="timeline-intro">
-              <span>120 YEARS.</span>
-              <span>COUNTLESS STORIES.</span>
-            </div>
-            <div className="era-line">
-              <div className="era-ticks" />
-              {[1900, 1920, 1940, 1960, 1980, 2000, 2020].map((y) => (
-                <span key={y} className={y === 1960 ? "highlight-era" : ""}>
-                  {y}
-                </span>
-              ))}
-            </div>
-            <span className="timeline-end">
-              <Arrow />
-            </span>
-          </section>
-          <div className="home-lower">
-            <p>A little curiosity goes a long way. Backwards, mostly.</p>
-            <span>{photos.length} PHOTOGRAPHS & COUNTING</span>
-          </div>
-        </main>
+        <HomeScreen
+          photos={photos}
+          ready={ready}
+          resume={!!activeGame}
+          onStart={start}
+          onResume={() => setScreen("game")}
+        />
       ) : game?.phase === "results" ? (
-        <main className="results-main scene-enter">
-          <div className="eyebrow">
-            <span className="red-line" /> YOUR TRIP, IN RETROSPECT
-          </div>
-          <h1 ref={heading} tabIndex={-1}>
-            {performance(score)[0]}
-          </h1>
-          <p className="results-description">{performance(score)[1]}</p>
-          <div className="final-score">
-            <span>{number(score)}</span>
-            <span>/ 5,000</span>
-          </div>
-          <div className="best-line">
-            <span>
-              {score > 0 && score >= progress.best
-                ? "A PERSONAL BEST"
-                : "YOUR PERSONAL BEST"}
-            </span>
-            <span>
-              {number(progress.best)} <span>PTS</span>
-            </span>
-          </div>
-          <div
-            className="round-table"
-            role="table"
-            aria-label="Your five-round results"
-          >
-            <div className="table-heading" role="row">
-              <span role="columnheader">THE PHOTOGRAPH</span>
-              <span role="columnheader">YOUR GUESS</span>
-              <span role="columnheader">ACTUAL YEAR</span>
-              <span role="columnheader">POINTS</span>
-            </div>
-            {game.answers.map((answer, i) => {
-              const p = photos.find((p) => p.id === answer.photoId)!;
-              return (
-                <div className="table-row" role="row" key={answer.photoId}>
-                  <div className="table-photo" role="rowheader">
-                    <span className="row-index">0{i + 1}</span>
-                    <img
-                      src={p.src}
-                      alt=""
-                      width="72"
-                      height="48"
-                      loading="lazy"
-                    />
-                    <span>{p.title}</span>
-                  </div>
-                  <span role="cell">{answer.guess}</span>
-                  <span role="cell" className="actual-table">
-                    {answer.actual}
-                  </span>
-                  <span role="cell">{number(answer.points)}</span>
-                </div>
-              );
-            })}
-          </div>
-          <div className="results-actions">
-            <button className="primary-button" onClick={start}>
-              Play again <Arrow />
-            </button>
-            <button className="secondary-button" onClick={copyResults}>
-              {copied ? "Copied to clipboard" : "Copy results"}
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <rect
-                  x="8"
-                  y="8"
-                  width="12"
-                  height="13"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-                <path d="M15 4H4v12" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-            </button>
-          </div>
-          {copyText && (
-            <div className="copy-fallback">
-              <label htmlFor="share-text">Select and copy your results:</label>
-              <textarea
-                id="share-text"
-                readOnly
-                value={shareResults(game.answers)}
-                onFocus={(e) => e.target.select()}
-                autoFocus
-              />
-            </div>
-          )}
-          <p className="results-postscript">
-            Same curiosity. A whole different century. Go again?
-          </p>
-        </main>
+        <ResultsScreen
+          game={game}
+          photos={photos}
+          best={progress.best}
+          copied={copied}
+          copyText={copyText}
+          headingRef={heading}
+          onStart={start}
+          onCopy={copyResults}
+        />
       ) : photo && game ? (
         <main className="game-main">
-          <div className="game-status">
-            <div className="round-label">
-              <span>
-                ROUND <strong>0{roundIndex + 1}</strong>
-                <span className="round-of"> / 05</span>
-              </span>
-              <div
-                className="round-dots"
-                aria-label={`Round ${roundIndex + 1} of 5`}
-              >
-                {Array.from({ length: 5 }, (_, i) => (
-                  <span
-                    key={i}
-                    className={`${i < game.answers.length ? "complete" : ""} ${i === roundIndex ? "current" : ""}`}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="total-points">
-              <span>TOTAL POINTS</span>
-              <strong>
-                {number(score).padStart(1, "0")}
-                <span> / 5,000</span>
-              </strong>
-            </div>
-          </div>
           <PhotoFrame
             key={photo.id}
             photo={photo}
@@ -565,16 +304,14 @@ export default function TimeTraveler() {
               PHOTOGRAPH {String(roundIndex + 1).padStart(2, "0")} / 05
             </span>
             <span>
-              {game.phase === "reveal"
-                ? photo.category.toUpperCase()
-                : "THE CLUES ARE IN THE DETAILS."}
+              {result ? photo.category : "Look closer. Every detail is a clue."}
             </span>
           </div>
           {result ? (
             <section className="reveal-panel scene-enter" aria-live="polite">
               <div className="reveal-main">
                 <div>
-                  <span className="eyebrow">THE YEAR WAS</span>
+                  <span className="eyebrow">IT WAS</span>
                   <h1 ref={heading} tabIndex={-1} className="revealed-year">
                     {photo.year}
                     <span>.</span>
@@ -583,17 +320,17 @@ export default function TimeTraveler() {
                 <div className="reveal-reaction">
                   <h2>{revealMessage(result.guess, photo.year)}</h2>
                   <p>
-                    Your guess: <strong>{result.guess}</strong>
+                    You guessed <strong>{result.guess}</strong>
                   </p>
                   <div className="round-score">
                     +{number(result.points)}
-                    <span> / 1,000 PTS</span>
+                    <span> POINTS</span>
                   </div>
                 </div>
                 <button className="primary-button" onClick={next}>
                   {game.answers.length === 5
-                    ? "See your results"
-                    : "Next photo"}
+                    ? "SEE YOUR RESULTS"
+                    : "NEXT PHOTO"}
                   <Arrow />
                 </button>
               </div>
@@ -628,7 +365,6 @@ export default function TimeTraveler() {
             <section className="guess-panel" ref={controls}>
               <div className="guess-heading">
                 <div>
-                  <span className="eyebrow">TRUST YOUR INSTINCT</span>
                   <h1 ref={heading} tabIndex={-1}>
                     What year was this taken?
                   </h1>
@@ -733,14 +469,15 @@ export default function TimeTraveler() {
                 </div>
                 <div className="guess-bottom">
                   <p>
-                    Slide through time.<span> Use ← → to fine-tune.</span>
+                    Drag the timeline{" "}
+                    <span>or type a year. ← → to fine-tune.</span>
                   </p>
                   <button
                     className="primary-button"
                     type="submit"
                     disabled={loadedPhotoId !== photo.id}
                   >
-                    Lock in year
+                    LOCK IN YEAR
                     <Arrow />
                   </button>
                 </div>
@@ -751,13 +488,11 @@ export default function TimeTraveler() {
       ) : null}
 
       <footer className="site-footer">
-        <span>FOR THE CURIOUS. FROM THE PAST.</span>
+        <span>A LITTLE CURIOSITY. A DIFFERENT CENTURY.</span>
         <button className="text-link" onClick={() => setModal("credits")}>
           The photo archive <Arrow diagonal />
         </button>
-        <span className="footer-edition">
-          EST. 2026 <span className="small-cross">+</span>
-        </span>
+        <span className="footer-edition">1900 — 2020</span>
       </footer>
 
       <dialog
