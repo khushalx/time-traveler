@@ -73,22 +73,36 @@ All requests use an identifiable `TimeTravelerPhotoLibrary` User-Agent with the 
 - `data/photo-library/records.json`: persistent candidate catalog, status, evidence, hash, review and failure reasons.
 - `data/photo-library/checkpoint.json`: query cursors and source failures.
 - `data/photo-library/approved.json`: approved snapshot used for reproducible asset preparation.
+- `data/photo-library/assets.json`: versioned public asset URL, bundle checksum and per-derivative checksums, matched to the catalog version.
 - `data/photo-library/report.json`: actual counts and approved distributions by decade, category, region and source.
 - `.photo-library/`: ignored API/binary cache, optimized assets, optional OCR executable and review sheets. Back it up to reuse downloads between machines.
 - `public/library/manifest.json`: compact gameplay index.
 - `public/library/releases/<content-hash>/`: immutable chunks of at most 25 full records, created by `photos:publish`.
 - `public/library/images/`: ignored, generated 1,600px WebP derivatives, mobile versions and 320px thumbnails, included in the static deployment archive and served from the site's CDN. Thousands of source image binaries are not committed to Git.
 
-On a fresh checkout:
+On a fresh checkout, including Vercel:
 
 ```sh
 npm install
-npm run photos:restore
-npm run photos:publish
 npm run build
 ```
 
-Restore regenerates derivatives from cached or source bytes and checks their SHA-256 against the approved record. A provider changing an image or an encoder producing different bytes fails explicitly and requires renewed review; it does not silently substitute a changed asset. The build preparation step refuses to ship missing approved derivatives. Keep the cache or deployment archive for an offline backup. No external object-storage credentials or paid backend are required by this static architecture.
+The build automatically restores missing images from the public, versioned GitHub Release bundle. It verifies the compressed bundle and every derivative against committed SHA-256 checksums, then places the exact reviewed bytes in `public/library/images` before Next.js exports the site. Existing public files and cached derivatives are also checked; corrupt files are repaired. Bundle transfers stream to disk, and images decode one record at a time. A failed, incomplete, changed or mismatched release fails the build explicitly. No archive API keys, GitHub token, paid storage, local cache or platform-specific image encoder is needed in CI.
+
+The bundle contains source, creator, license and modification credits alongside the images. The current published release is [photo-library-99ad492803f63ab1](https://github.com/khushalx/time-traveler/releases/tag/photo-library-99ad492803f63ab1). These files are public, reusable image assets; this does not change the audience of the separately hosted Sites game.
+
+After approving and publishing a larger local catalog, create a new immutable asset release before pushing it:
+
+```sh
+npm run photos:publish
+npm run photos:bundle -- --url 'https://github.com/OWNER/REPO/releases/download/NEW-TAG/photo-assets-CATALOG-VERSION.jsonl.gz'
+# Upload the printed .photo-library/releases file to that public GitHub Release.
+# Commit the updated data/photo-library/assets.json with the new catalog.
+```
+
+The URL is an example: substitute the actual repository, tag and catalog version printed by `photos:publish`. Upload before pushing the descriptor so automatic deployments can retrieve the asset. Keep releases immutable; publish a new tag rather than replacing an existing bundle. Each bundle is currently limited to 2GB. The compressed JSON Lines format avoids tar extraction and streams individual files into a validated filename allowlist.
+
+`photos:restore` remains an explicit archive-maintenance command. It regenerates derivatives from cached or source bytes and checks the approved main-image SHA-256. A provider changing an image or a different encoder producing changed bytes requires renewed review; CI uses the published bytes instead. Keep the cache or release bundle for offline backup.
 
 `photos:publish` builds local catalog files; publication to the existing website follows the normal Sites deployment workflow. It does not change audience access. License URLs, creator/source credit and resizing information remain available in the existing reveal interface and catalog. CC BY-SA derivatives retain the source license.
 

@@ -16,7 +16,8 @@
     "photos:review": "node scripts/photos/pipeline.mjs review",
     "photos:screen": "node scripts/photos/pipeline.mjs screen",
     "photos:restore": "node scripts/photos/pipeline.mjs restore",
-    "photos:publish": "node scripts/photos/pipeline.mjs publish"
+    "photos:publish": "node scripts/photos/pipeline.mjs publish",
+    "photos:bundle": "node scripts/photos/bundle.mjs"
   },
   "dependencies": {
     "next": "16.4.3",

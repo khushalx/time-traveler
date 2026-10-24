@@ -8,10 +8,13 @@ Requires Node.js 20.9+.
 
 ```sh
 npm install
+npm run prebuild
 npm run dev
 ```
 
 Open http://localhost:3000. `npm run build` produces a portable static site in `out/`. Serve that directory with any static host; `next start` does not serve static-export projects.
+
+Vercel can use its standard `npm run build` command. The prebuild step automatically downloads the versioned, checksum-verified photo release when images are absent from a clean checkout. No API keys or manual photo restoration are required. Bulk images stay outside Git and are included in the exported site. See [photo library deployment](docs/photo-library.md#storage-restoration-and-deployment).
 
 ## Checks
 
