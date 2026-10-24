@@ -8,3 +8,4 @@ out/
 test-results/
 .photo-library/
 public/library/images/
+*-deploy.tar.gz
