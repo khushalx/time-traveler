@@ -16,7 +16,7 @@ Open http://localhost:3000. `npm run build` produces a portable static site in `
 
 Vercel can use its standard `npm run build` command. The prebuild step automatically downloads the versioned, checksum-verified photo release when images are absent from a clean checkout. No API keys or manual photo restoration are required. Bulk images stay outside Git and are included in the exported site. See [photo library deployment](docs/photo-library.md#storage-restoration-and-deployment).
 
-`vercel.json` explicitly selects Next.js and serves the generated `out/` directory. Serving `public/` alone includes photographs but omits `out/index.html`, causing a platform `404 NOT_FOUND` at `/` even when the build succeeds.
+`vercel.json` uses Vercel's static/Other preset, runs the Next.js build and serves the generated `out/` directory. Serving `public/` alone includes photographs but omits `out/index.html`, causing a platform `404 NOT_FOUND` at `/` even when the build succeeds. The static preset avoids confusing `out/` with the `.next/` build metadata expected by Vercel's Next.js server adapter; this game needs no server runtime.
 
 ## Checks
 
