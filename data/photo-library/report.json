@@ -1,12 +1,13 @@
 {
   "policyVersion": 1,
-  "candidatesDiscovered": 2593,
+  "candidatesDiscovered": 2744,
   "importedApproved": 251,
   "existingCurated": 26,
-  "totalPlayable": 277,
-  "rejected": 817,
-  "pendingReview": 1525,
-  "duplicatesRemoved": 6,
+  "totalPlayable": 287,
+  "liveApproved": 10,
+  "rejected": 873,
+  "pendingReview": 1610,
+  "duplicatesRemoved": 7,
   "byDecade": {
     "1900s": 5,
     "1910s": 3,
@@ -44,17 +45,19 @@
     "Unspecified": 57
   },
   "reviewReasons": {
-    "ambiguous-or-missing-capture-date": 810,
-    "conflicting-or-approximate-context-date": 418,
-    "discovery-year-conflicts-with-capture-date": 1575,
+    "ambiguous-or-missing-capture-date": 866,
+    "conflicting-or-approximate-context-date": 430,
+    "discovery-year-conflicts-with-capture-date": 1653,
     "extreme-aspect-ratio": 56,
-    "low-source-resolution": 449,
+    "low-source-resolution": 504,
+    "ocr-unavailable": 30,
     "source-restrictions-require-review": 78,
-    "title-date-conflicts-with-capture-date": 552,
-    "unclear-or-incompatible-rights": 970,
-    "unsuitable-or-non-photographic-subject": 195,
+    "title-date-conflicts-with-capture-date": 577,
+    "unclear-or-incompatible-rights": 1034,
+    "unsuitable-or-non-photographic-subject": 196,
     "Visual review rejected: redundant shoot coverage, visible dates or watermarks, insufficient period context, poor clarity, or non-photographic subject.": 167,
-    "visual-duplicate": 6
+    "visual-duplicate": 7,
+    "visual-review-required": 30
   },
   "failures": [],
   "sourceStatus": {

@@ -54,6 +54,8 @@ const { values, positionals } = parseArgs({
     "max-pages": { type: "string", default: "100" },
     "max-per-creator-year": {type:"string",default:"20"},
     query: { type: "string" },
+    plan: { type: "string" },
+    "skip-ocr": { type: "boolean" },
     year: { type: "string" },
     ids: { type: "string" },
     reason: { type: "string" },
@@ -70,6 +72,14 @@ const mutating =
   (action === "review" && values.ids);
 if (mutating) {
   await mkdir(".photo-library", { recursive: true });
+  // The sync owns the entire discovery/review/publication transaction.
+  try {
+    const owner = Number(await readFile(".photo-library/sync.lock", "utf8"));
+    let alive = false;
+    try { process.kill(owner, 0); alive = true; } catch { /* stale sync */ }
+    if (alive && !(owner === process.ppid && process.env.PHOTO_SYNC_PID === String(owner)))
+      throw new Error(`Automatic photo sync ${owner} is running. Wait before modifying the catalog.`);
+  } catch (error) { if (error.code !== "ENOENT") throw error; }
   const lock = ".photo-library/job.lock";
   try {
     const handle = await open(lock, "wx");
@@ -124,6 +134,11 @@ const checkpoint = await readJSON(checkpointFile, {
   jobs: {},
   failures: [],
 });
+const customPlan = values.plan ? await readJSON(values.plan, null) : null;
+if (values.plan && (!Array.isArray(customPlan) || customPlan.length > 500 ||
+    customPlan.some((q) => !q || typeof q.search !== "string" || q.search.length > 500 ||
+      !Number.isInteger(q.year) || q.year < from || q.year > to)))
+  throw new Error("Invalid discovery plan");
 const approved = () => records.filter((p) => p.status === "approved");
 const byId = new Map(records.map((p) => [p.id, p]));
 const countBy = (items, key) =>
@@ -146,7 +161,8 @@ function stats() {
     candidatesDiscovered: records.length,
     importedApproved: accepted.length,
     existingCurated: seed.length,
-    totalPlayable: accepted.length + seed.length,
+    totalPlayable: accepted.length + seed.length + records.filter((p) => p.status === "live").length,
+    liveApproved: records.filter((p) => p.status === "live").length,
     rejected: records.filter((p) => p.status === "rejected").length,
     pendingReview: records.filter((p) => p.status === "review").length,
     duplicatesRemoved: records.filter(
@@ -200,6 +216,7 @@ async function prepareOCR() {
   }
 }
 function queries() {
+  if (customPlan) return customPlan;
   if (values.query)
     return [
       {
@@ -309,7 +326,7 @@ async function importPhotos() {
     } catch {
       /* validation reports seed problems separately */
     }
-  const ocr = await prepareOCR();
+  const ocr = values["skip-ocr"] ? null : await prepareOCR();
   let processed = 0,
     pages = 0;
   for (const source of sources) {

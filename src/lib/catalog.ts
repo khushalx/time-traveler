@@ -10,6 +10,9 @@ type IndexRow = [
   string,
 ];
 type Fetcher = (url: string, init?: RequestInit) => Promise<Response>;
+export const LIVE_CATALOG_BASE = "https://raw.githubusercontent.com/khushalx/time-traveler/main/public";
+export const LIVE_MANIFEST_URL = `${LIVE_CATALOG_BASE}/library/live/manifest.json`;
+const LIVE_IMAGE = /^https:\/\/github\.com\/khushalx\/time-traveler\/releases\/download\/photo-live-[a-f0-9]{16}\/[a-f0-9]{64}\.webp$/;
 export type PhotoCatalog = {
   entries: CatalogEntry[];
   total: number;
@@ -17,7 +20,7 @@ export type PhotoCatalog = {
   load: (ids: string[]) => Promise<Photo[]>;
 };
 
-export function parseManifest(value: unknown): CatalogEntry[] {
+export function parseManifest(value: unknown, live = false): CatalogEntry[] {
   if (!value || typeof value !== "object")
     throw new Error("Invalid catalog manifest");
   const manifest = value as { schemaVersion?: number; entries?: unknown[] };
@@ -36,6 +39,7 @@ export function parseManifest(value: unknown): CatalogEntry[] {
     if (
       typeof id !== "string" ||
       !id ||
+      (live && !/^commons-\d+$/.test(id)) ||
       seen.has(id) ||
       !Number.isInteger(year) ||
       year < 1900 ||
@@ -47,14 +51,24 @@ export function parseManifest(value: unknown): CatalogEntry[] {
       quality < 0 ||
       quality > 1 ||
       typeof chunk !== "string" ||
-      !/^\/library\/releases\/[a-f0-9]{16}\/\d+\.json$/.test(chunk)
+      !(live ? /^\/library\/live\/releases\/[a-f0-9]{16}\/\d+\.json$/ :
+        /^\/library\/releases\/[a-f0-9]{16}\/\d+\.json$/).test(chunk)
     )
       throw new Error("Invalid catalog metadata");
     seen.add(id);
-    return { id, year, category, region, difficulty, quality, chunk };
+    return { id, year, category, region, difficulty, quality,
+      chunk: live ? LIVE_CATALOG_BASE + chunk : chunk };
   });
 }
 function validPhoto(p: Photo, entry: CatalogEntry) {
+  const live = entry.chunk?.startsWith(LIVE_CATALOG_BASE + "/library/live/");
+  const main = p?.src;
+  if (live && (typeof main !== "string" || !LIVE_IMAGE.test(main) ||
+      p.thumbnailSrc !== main.replace(/\.webp$/, "-320.webp") ||
+      p.srcSet !== (p.width > 800
+        ? `${main.replace(/\.webp$/, "-800.webp")} 800w, ${main} ${p.width}w`
+        : `${main} ${p.width}w`) ||
+      !/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(p.sourceUrl))) return false;
   return (
     p &&
     p.id === entry.id &&
@@ -66,7 +80,7 @@ function validPhoto(p: Photo, entry: CatalogEntry) {
     typeof p.sourceUrl === "string" &&
     /^https:\/\//.test(p.sourceUrl) &&
     typeof p.src === "string" &&
-    /^\/library\/images\/[a-f0-9]{64}\.webp$/.test(p.src) &&
+    (live ? LIVE_IMAGE.test(p.src) : /^\/library\/images\/[a-f0-9]{64}\.webp$/.test(p.src)) &&
     Number.isInteger(p.width) &&
     Number.isInteger(p.height) &&
     p.width >= 500 &&
@@ -79,25 +93,33 @@ function validPhoto(p: Photo, entry: CatalogEntry) {
 export async function openCatalog(
   seed: Photo[],
   fetcher: Fetcher = fetch,
+  { live = true } = {},
 ): Promise<PhotoCatalog> {
   let imported: CatalogEntry[] = [];
   let available = false;
-  try {
-    const response = await fetcher("/library/manifest.json", {
+  const sources = await Promise.all([
+    { url: "/library/manifest.json", live: false },
+    ...(live ? [{ url: LIVE_MANIFEST_URL, live: true }] : []),
+  ].map(async (source) => {
+    try {
+      const response = await fetcher(source.url, {
       cache: "no-cache",
-      signal: AbortSignal.timeout(8000),
-    });
-    if (response.ok) {
-      imported = parseManifest(await response.json());
-      available = true;
-    }
-  } catch {
-    /* The curated offline fallback remains playable. */
-  }
-  const seedIds = new Set(seed.map((p) => p.id));
+      signal: AbortSignal.timeout(source.live ? 4000 : 8000),
+      });
+      if (!response.ok) return null;
+      return parseManifest(await response.json(), source.live);
+    } catch { return null; /* A failed live refresh never removes the offline archive. */ }
+  }));
+  available = sources.some((entries) => entries !== null);
+  imported = sources.flatMap((entries) => entries ?? []);
+  const seenIds = new Set(seed.map((p) => p.id));
   const entries: CatalogEntry[] = [
     ...seed,
-    ...imported.filter((p) => !seedIds.has(p.id)),
+    ...imported.filter((p) => {
+      if (seenIds.has(p.id)) return false;
+      seenIds.add(p.id);
+      return true;
+    }),
   ];
   const index = new Map(entries.map((p) => [p.id, p]));
   const cache = new Map(seed.map((p) => [p.id, p]));
@@ -116,12 +138,17 @@ export async function openCatalog(
           const data = await response.json();
           if (!Array.isArray(data) || data.length > 25)
             throw new Error("Invalid photo chunk");
+          const owned: Photo[] = [];
           for (const p of data as Photo[]) {
+            if (!p || typeof p.id !== "string") throw new Error("Invalid photo record");
             const entry = index.get(p.id);
-            if (!entry || entry.chunk !== path || !validPhoto(p, entry))
+            // An overlapping seed/local ID takes precedence over a live copy.
+            if (entry && entry.chunk !== path) continue;
+            if (!entry || !validPhoto(p, entry))
               throw new Error("Photo metadata did not match the index");
+            owned.push(p);
           }
-          for (const p of data as Photo[]) cache.set(p.id, p);
+          for (const p of owned) cache.set(p.id, p);
         })().catch((error) => {
           requests.delete(path);
           throw error;

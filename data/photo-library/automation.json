@@ -1,0 +1,18 @@
+{
+  "sequence": 2,
+  "policy": "commons-auto-v1",
+  "startedAt": "2026-10-25T00:50:54.318Z",
+  "completedAt": "2026-10-25T00:51:58.574Z",
+  "added": 10,
+  "total": 10,
+  "tag": "photo-live-2816e019ad28457a",
+  "version": "e3a08fec0da9c640",
+  "checked": 11,
+  "held": {
+    "ocr-watermark-or-copyright": 1
+  },
+  "liveTotal": 10,
+  "playableTotal": 287,
+  "discovered": 1,
+  "providerFailures": []
+}

@@ -178,7 +178,7 @@ export default function TimeTraveler() {
       try {
         if (stored.game) restored = await library.load(stored.game.photoIds);
         canSave.current = true;
-        if (!library.available && raw) {
+        if (raw) {
           try {
             const ids = JSON.parse(raw)?.game?.photoIds;
             if (

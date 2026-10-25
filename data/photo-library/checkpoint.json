@@ -882,6 +882,51 @@
         "search": "Canada train intitle:1965 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "b6b3fb847a203fa541b9287d68465962dce6505ba7b06e808790fd1fd1429f27": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2018,
+        "search": "street intitle:2018 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b2d257fb9d4014cae5e5810aa1401dbec311551f6389e73df0ac29646aa97472": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1941,
+        "search": "train intitle:1941 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "489a19e4311759447ad5a387a626d877bc6a2f8172d450d77b8fdc2339a7d3fb": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2004,
+        "search": "family intitle:2004 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8fc3ed218171eda3f5d35f985de31df0c8e38d2d7ab9b273f9494e69f61bad95": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 2016,
+        "search": "market intitle:2016 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d6032516abcaef1b93ce1c56ea7a405319041f7ed2d9be545df5f65e8ff53f48": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 2004,
+        "search": "Japan train intitle:2004 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": []

@@ -1,0 +1,61 @@
+name: Grow the photo archive
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: photo-library-sync
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/cache@v4
+        with:
+          path: |
+            .photo-library/cache
+            .photo-library/assets
+          key: photo-downloads-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: photo-downloads-${{ runner.os }}-
+      - name: Install image and OCR tools
+        run: |
+          npm ci
+          sudo apt-get update -qq
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-eng
+      - name: Discover, check and publish a bounded photo batch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PHOTO_USER_AGENT: TimeTravelerPhotoLibrary/2.0 (https://github.com/khushalx/time-traveler; automated historical photo importer)
+        run: npm run photos:sync
+      - name: Verify import and game logic
+        run: node --experimental-strip-types --test scripts/photos/*.test.mjs src/lib/game.test.ts
+      - name: Save the catalog and source evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/photo-library/records.json data/photo-library/checkpoint.json data/photo-library/report.json data/photo-library/automation.json public/library/live
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh the automatic Wikimedia photo catalog'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Write run summary
+        if: always()
+        run: |
+          if [ -f data/photo-library/automation.json ]; then
+            printf '## Photo archive sync\n\n```json\n' >> "$GITHUB_STEP_SUMMARY"
+            cat data/photo-library/automation.json >> "$GITHUB_STEP_SUMMARY"
+            printf '\n```\n' >> "$GITHUB_STEP_SUMMARY"
+          fi

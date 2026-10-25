@@ -52,3 +52,18 @@ The active fonts Barlow Condensed, DM Sans, and IBM Plex Mono are self-hosted. T
 Future room, daily, leaderboard, and timer features can reuse the scoring and photo types; none is included in V1. All current game state stays on the device.
 
 See `docs/ui-overhaul.md` for the dark cinematic redesign and its verification record.
+
+## Automatic Wikimedia archive
+
+The library grows through the [Grow the photo archive workflow](https://github.com/khushalx/time-traveler/actions/workflows/photo-library.yml), scheduled daily at 04:17 UTC (09:47 India time). It also supports **Run workflow** in GitHub Actions. No archive API key or manual photo entry is required.
+
+Each run checks up to 400 discovery candidates and publishes at most 40 qualifying photos. All years from 1900–2020 are eligible; sparse years get priority, with rotating subjects and places. Exact source capture dates, compatible licenses, decoded image quality, duplicate checks, and required OCR control automatic acceptance. Uncertain records stay out of play. Automated checks can miss visual or source mistakes; each live record retains its evidence and a separate automatic audit.
+
+New photos are optimized into immutable GitHub Release assets. The game merges a small live index with its existing local archive and loads metadata only for selected rounds. Catalog updates need no Vercel redeploy. A failed sync leaves the previous index usable; a network outage preserves the local archive and saved scores.
+
+```sh
+npm run photos:sync -- --dry-run
+npm run photos:sync -- --max-new 40 --max-candidates 400 --max-pages 12
+```
+
+Local publication requires GitHub CLI write access to this repository and Tesseract OCR (or native Vision on macOS). The scheduled Ubuntu job installs Tesseract and uses its repository-scoped Actions token. See [the photo library documentation](docs/photo-library.md) for the audit, publication, failure and removal procedures.

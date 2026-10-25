@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { performance } from "node:perf_hooks";
 import { readFile } from "node:fs/promises";
-import { openCatalog, parseManifest } from "./catalog.ts";
+import { openCatalog, parseManifest, LIVE_MANIFEST_URL, LIVE_CATALOG_BASE } from "./catalog.ts";
 import { selectPhotos, beginTrip, EMPTY_PROGRESS, type Photo } from "./game.ts";
 const chunk = "/library/releases/abcdef0123456789/0.json";
 const row = ["commons-1", 1967, "Street life", "India", "medium", 0.9, chunk];
@@ -76,7 +76,7 @@ test("selected metadata chunks load once; year mapping and missing records are c
       ),
     );
   };
-  const catalog = await openCatalog([], fetcher);
+  const catalog = await openCatalog([], fetcher, { live: false });
   assert.equal(calls.length, 1);
   assert.equal((await catalog.load([photo.id]))[0].year, 1967);
   await catalog.load([photo.id]);
@@ -164,4 +164,46 @@ test("5000-record selections stay varied, avoid recent IDs and sample beyond the
   );
   assert.equal(trip.best, 4000);
   assert.equal(trip.recent.length, 250);
+});
+
+const liveChunk = "/library/live/releases/abcdef0123456789/0.json";
+const remoteMain = `https://github.com/khushalx/time-traveler/releases/download/photo-live-abcdef0123456789/${"b".repeat(64)}.webp`;
+const remotePhoto: Photo = { ...photo, id: "commons-2", year: 2018, src: remoteMain,
+  thumbnailSrc: remoteMain.replace(".webp", "-320.webp"),
+  srcSet: `${remoteMain.replace(".webp", "-800.webp")} 800w, ${remoteMain} 1400w` };
+const liveRow = [remotePhoto.id, remotePhoto.year, "Street life", "India", "medium", 0.9, liveChunk];
+test("live index merges with the offline archive and fetches only selected chunks once", async () => {
+  const calls: string[] = [];
+  const catalog = await openCatalog([], async url => {
+    calls.push(url);
+    const value = url === LIVE_MANIFEST_URL ? {schemaVersion: 1, entries: [liveRow]} :
+      url === "/library/manifest.json" ? {schemaVersion: 1, entries: [row]} :
+      url === LIVE_CATALOG_BASE + liveChunk ? [remotePhoto] : [photo];
+    return new Response(JSON.stringify(value));
+  });
+  assert.equal(catalog.total, 2);
+  assert.equal(calls.length, 2);
+  assert.equal((await catalog.load([remotePhoto.id]))[0].src, remoteMain);
+  await catalog.load([remotePhoto.id]);
+  assert.equal(calls.length, 3);
+  assert.ok(!calls.includes(chunk));
+});
+test("live outages preserve local play and malicious photo URLs never load", async () => {
+  const local = await openCatalog([], async url => url === LIVE_MANIFEST_URL ? new Response("offline", {status: 503}) :
+    new Response(JSON.stringify(url.includes("manifest") ? {schemaVersion: 1, entries: [row]} : [photo])));
+  assert.equal(local.total, 1);
+  assert.equal((await local.load([photo.id]))[0].year, 1967);
+  for (const patch of [{src: "https://evil.example/image.webp"}, {year: 2017}, {thumbnailSrc: "https://evil.example/thumb.webp"}]) {
+    const catalog = await openCatalog([], async url => url === "/library/manifest.json" ? new Response("missing", {status: 404}) :
+      new Response(JSON.stringify(url === LIVE_MANIFEST_URL ? {schemaVersion: 1, entries: [liveRow]} : [{...remotePhoto, ...patch}])));
+    await assert.rejects(catalog.load([remotePhoto.id]), /did not match/);
+  }
+});
+test("seed and local IDs take precedence over overlapping live records", async () => {
+  const overlapping = {...remotePhoto, id: photo.id, year: photo.year};
+  const catalog = await openCatalog([photo], async url => url === "/library/manifest.json" ? new Response("missing", {status: 404}) :
+    new Response(JSON.stringify(url === LIVE_MANIFEST_URL ? {schemaVersion: 1, entries: [liveRow, [photo.id, photo.year, ...liveRow.slice(2)]]} : [remotePhoto, overlapping])));
+  assert.equal(catalog.total, 2);
+  assert.equal((await catalog.load([remotePhoto.id]))[0].id, remotePhoto.id);
+  assert.equal((await catalog.load([photo.id]))[0].src, photo.src);
 });

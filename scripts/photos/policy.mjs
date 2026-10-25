@@ -281,6 +281,6 @@ export function validRecord(p) {
     !!p.dateEvidence &&
     p.yearConfidence === "verified" &&
     !!reusableLicense(p.license, p.licenseUrl) &&
-    ["approved", "review", "rejected"].includes(p.status)
+    ["approved", "live", "review", "rejected"].includes(p.status)
   );
 }
