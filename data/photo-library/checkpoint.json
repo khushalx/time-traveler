@@ -1035,6 +1035,87 @@
         "search": "Japan market intitle:1939 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "87c974628ba8738f94fb470369f308ef07600e154251826c9c07740bfec34d4f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2004,
+        "search": "market intitle:2004 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b8be5d2bf91b72d371c09de58e0f6914a94836dfab60860235c06ea0bad823c1": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1911,
+        "search": "cars intitle:1911 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "962b1058bf86db8c75eb7f4df3e2ad428e13e993dff5ddf1928ded2e23b77c2a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1979,
+        "search": "school intitle:1979 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b24ab43606442a647e80ed187187bcab8ddfbce502cc72f5dabbe1401628fc29": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1982,
+        "search": "fashion intitle:1982 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "65ab0468c4e0923a3657f57752f66e37e78f6d8949bd3850667be169c2cf4dc4": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1949,
+        "search": "factory intitle:1949 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9ade4bff00590a3e3e94b6601239abae3d717f658edca2895f3a770f1c7a6a4f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2001,
+        "search": "music intitle:2001 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "59b948d4778ebe527e81cd12ec25c6a5d1db7f5d6eab55155ba809a3b441eeaa": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1962,
+        "search": "city intitle:1962 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6b07b284175d64731f9afb5608136d2ccb79e8d4ca7a38f80a39aa4e8858fe34": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1929,
+        "search": "street intitle:1929 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f0c6080072af58ea97011782866aa0df5358638772b687662f0c7992e6407630": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1931,
+        "search": "train intitle:1931 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": []
