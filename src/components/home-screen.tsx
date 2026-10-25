@@ -1,22 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
-import type { Photo } from "@/lib/game";
+import { GAME_MODES, type GameMode, type Photo } from "@/lib/game";
 import { Arrow } from "./icons";
 
 export function HomeScreen({
   photos,
   ready,
-  resume,
+  mode,
+  resumeMode,
+  onModeChange,
   onStart,
   onResume,
 }: {
   photos: Photo[];
   ready: boolean;
-  resume: boolean;
+  mode: GameMode;
+  resumeMode?: GameMode;
+  onModeChange: (mode: GameMode) => void;
   onStart: () => void;
   onResume: () => void;
 }) {
   const main = photos.find((p) => p.id === "london-1955") ?? photos[0];
   const second = photos.find((p) => p.id === "fashion-1967") ?? photos[1];
+  const resume = resumeMode === mode;
   return (
     <main className="home-main scene-enter">
       <section className="home-hero" aria-labelledby="home-title">
@@ -34,6 +39,15 @@ export function HomeScreen({
             <br />
             Travel through time.
           </p>
+          <fieldset className="mode-picker">
+            <legend>CHOOSE YOUR JOURNEY</legend>
+            {(Object.keys(GAME_MODES) as GameMode[]).map((key) => (
+              <label key={key} className={`mode-option ${mode === key ? "is-selected" : ""}`}>
+                <input type="radio" name="game-mode" value={key} checked={mode === key} onChange={() => onModeChange(key)} />
+                <span><strong>{GAME_MODES[key].name}</strong><small>{GAME_MODES[key].rounds} photos{key === "tour" ? " · 12 decades" : " · a quick escape"}</small></span>
+              </label>
+            ))}
+          </fieldset>
           <div className="home-actions">
             <button
               className="primary-button"
@@ -50,7 +64,7 @@ export function HomeScreen({
             )}
           </div>
           <p className="game-promise">
-            <strong>5 photographs.</strong> No clock. Just your instinct.
+            <strong>{mode === "tour" ? "A whole century, shuffled." : "A fresh mix of eras."}</strong> No clock. Just your instinct.
           </p>
         </div>
         <div

@@ -1,4 +1,9 @@
 export const ROUND_COUNT = 5;
+export const GAME_MODES = {
+  classic: { name: "Classic", rounds: 5 },
+  tour: { name: "Grand Tour", rounds: 12 },
+} as const;
+export type GameMode = keyof typeof GAME_MODES;
 export const MIN_YEAR = 1900;
 export const MAX_YEAR = 2020;
 export const RECENT_LIMIT = 250;
@@ -38,6 +43,7 @@ export type Answer = {
   points: number;
 };
 export type Game = {
+  mode?: GameMode;
   photoIds: string[];
   answers: Answer[];
   guess: number;
@@ -46,6 +52,7 @@ export type Game = {
 export type Progress = {
   version: 1;
   best: number;
+  tourBest?: number;
   played: number;
   recent: string[];
   game: Game | null;
@@ -75,45 +82,61 @@ export function selectPhotos(
   photos: PhotoChoice[],
   recent: string[],
   random = Math.random,
+  roundCount = ROUND_COUNT,
 ): string[] {
-  const seen = new Set(recent);
   const distinct = [...new Map(photos.map((p) => [p.id, p])).values()];
-  const fresh = distinct.filter((p) => !seen.has(p.id));
   const selected: PhotoChoice[] = [];
-  while (fresh.length && selected.length < ROUND_COUNT) {
-    // Prefer a new subject, decade, region and difficulty when supplied. Apply
-    // a soft quality preference without starving smaller archive collections.
-    const weight = (p: PhotoChoice) => {
-      const count = (key: "category" | "region" | "difficulty") =>
-        p[key] && p[key] !== "Unspecified"
-          ? selected.filter((s) => s[key] === p[key]).length
-          : 0;
-      const decadeCount = p.year
-        ? selected.filter(
-            (s) =>
-              s.year && Math.floor(s.year / 10) === Math.floor(p.year! / 10),
-          ).length
-        : 0;
-      return (
-        (0.7 + Math.max(0, Math.min(1, p.quality ?? 0.8)) * 0.3) /
-        ((1 + 5 * count("category")) *
-          (1 + 4 * decadeCount) *
-          (1 + 2 * count("region")) *
-          (1 + count("difficulty")))
-      );
-    };
-    let pool = fresh;
-    // Hard guard against five of one subject whenever another is available.
-    if (
-      selected.length === ROUND_COUNT - 1 &&
-      selected.every((p) => p.category && p.category === selected[0].category)
-    ) {
-      const varied = fresh.filter((p) => p.category !== selected[0].category);
+  const recentOrder = new Map(recent.map((id, i) => [id, i]));
+  const decade = (p: PhotoChoice) => Math.floor((p.year ?? 1960) / 10);
+  const pick = <T,>(items: T[]) =>
+    items[Math.floor(Math.max(0, Math.min(0.999999999, random())) * items.length)];
+  let remaining = [...distinct];
+  while (remaining.length && selected.length < roundCount) {
+    let pool = remaining;
+    // Pick an era first, then a year, then a photograph. Large collections
+    // (e.g. 45 photos from 1975) must not buy a larger share of the timeline.
+    const decades = [...new Set(pool.map(decade))];
+    const count = (d: number) => selected.filter((p) => decade(p) === d).length;
+    const least = Math.min(...decades.map(count));
+    let eligible = decades.filter((d) => count(d) === least);
+    const needsSubject = selected.length === roundCount - 1 &&
+      selected.length > 1 &&
+      selected.every((p) => p.category && p.category === selected[0].category);
+    if (needsSubject) {
+      const varied = eligible.filter((d) => pool.some(
+        (p) => decade(p) === d && p.category !== selected[0].category,
+      ));
+      if (varied.length) eligible = varied;
+    }
+    const chosenDecade = pick(eligible);
+    pool = pool.filter((p) => decade(p) === chosenDecade);
+    if (needsSubject) {
+      const varied = pool.filter((p) => p.category !== selected[0].category);
       if (varied.length) pool = varied;
     }
-    const weights = pool.map(weight);
-    let target =
-      Math.max(0, Math.min(0.999999999, random())) *
+    const fresh = pool.filter((p) => !recentOrder.has(p.id));
+    if (fresh.length) {
+      pool = fresh;
+      const newYears = pool.filter((p) => !selected.some((s) => s.year === p.year));
+      if (newYears.length) pool = newYears;
+      const year = pick([...new Set(pool.map((p) => p.year))]);
+      pool = pool.filter((p) => p.year === year);
+    } else {
+      // Revisit the oldest photo in an exhausted era instead of letting the
+      // abundant decades take over once the smaller collections are seen.
+      pool = [pool.reduce((oldest, p) =>
+        recentOrder.get(p.id)! < recentOrder.get(oldest.id)! ? p : oldest,
+      )];
+    }
+    const weights = pool.map((p) => {
+      const repeats = (key: "category" | "region" | "difficulty") =>
+        p[key] && p[key] !== "Unspecified"
+          ? selected.filter((s) => s[key] === p[key]).length : 0;
+      return (0.7 + Math.max(0, Math.min(1, p.quality ?? 0.8)) * 0.3) /
+        ((1 + 5 * repeats("category")) *
+          (1 + 2 * repeats("region")) * (1 + repeats("difficulty")));
+    });
+    let target = Math.max(0, Math.min(0.999999999, random())) *
       weights.reduce((a, b) => a + b, 0);
     let chosen = pool[pool.length - 1];
     for (let i = 0; i < pool.length; i++) {
@@ -124,18 +147,19 @@ export function selectPhotos(
       }
     }
     selected.push(chosen);
-    fresh.splice(fresh.indexOf(chosen), 1);
+    remaining = remaining.filter((p) => p.id !== chosen.id);
   }
-  // If the archive is nearly exhausted, use the least recently seen photographs first.
-  const old = distinct
-    .filter((p) => recent.includes(p.id))
-    .map((p) => p.id)
-    .sort((a, b) => recent.indexOf(a) - recent.indexOf(b));
-  return [...selected.map((p) => p.id), ...old].slice(0, ROUND_COUNT);
+  return selected.map((p) => p.id);
 }
-export function newGame(photos: Photo[], recent: string[]): Game {
+export function gameMode(game: Game): GameMode {
+  return game.mode ?? "classic";
+}
+export function newGame(
+  photos: Photo[], recent: string[], mode: GameMode = "classic",
+): Game {
   return {
-    photoIds: selectPhotos(photos, recent),
+    mode,
+    photoIds: selectPhotos(photos, recent, Math.random, GAME_MODES[mode].rounds),
     answers: [],
     guess: 1960,
     phase: "guess",
@@ -166,10 +190,12 @@ export function submitGuess(game: Game, photo: Photo, year: number): Game {
 export function advanceRound(progress: Progress): Progress {
   const game = progress.game;
   if (!game || game.phase !== "reveal") return progress;
-  if (game.answers.length === ROUND_COUNT) {
+  if (game.answers.length === game.photoIds.length) {
     return {
       ...progress,
-      best: Math.max(progress.best, totalScore(game.answers)),
+      ...(gameMode(game) === "tour"
+        ? { tourBest: Math.max(progress.tourBest ?? 0, totalScore(game.answers)) }
+        : { best: Math.max(progress.best, totalScore(game.answers)) }),
       played: progress.played + 1,
       game: { ...game, phase: "results" },
     };
@@ -181,13 +207,14 @@ export function beginTrip(
   progress: Progress,
   photos: Photo[],
   catalogSize = photos.length,
+  mode: GameMode = "classic",
 ): Progress {
-  const game = newGame(photos, progress.recent);
+  const game = newGame(photos, progress.recent, mode);
   return {
     ...progress,
     game,
     recent: [...progress.recent, ...game.photoIds].slice(
-      -Math.max(1, Math.min(RECENT_LIMIT, catalogSize - ROUND_COUNT)),
+      -Math.max(1, Math.min(RECENT_LIMIT, catalogSize - game.photoIds.length)),
     ),
   };
 }
@@ -198,7 +225,8 @@ export function revealMessage(guess: number, actual: number) {
     return `Only ${distance} ${distance === 1 ? "year" : "years"} away.`;
   return `You were ${distance} years too ${guess < actual ? "early" : "late"}.`;
 }
-export function performance(score: number) {
+export function performance(score: number, maximum = 5000) {
+  score = score / maximum * 5000;
   if (score >= 4500)
     return [
       "YOU BELONG IN ANOTHER ERA.",
@@ -219,8 +247,8 @@ export function performance(score: number) {
     "Every photograph is a new place to start. Take another trip.",
   ];
 }
-export function shareResults(answers: Answer[]) {
-  return `TIME TRAVELER\n${totalScore(answers).toLocaleString("en-US")} / 5,000 points\n\n${answers.map((a, i) => `${i + 1}. ${a.guess} → ${a.actual} · ${a.points} pts`).join("\n")}\n\nOne photo. One guess. Travel through time.`;
+export function shareResults(answers: Answer[], mode: GameMode = "classic") {
+  return `TIME TRAVELER · ${GAME_MODES[mode].name}\n${totalScore(answers).toLocaleString("en-US")} / ${(answers.length * 1000).toLocaleString("en-US")} points\n\n${answers.map((a, i) => `${i + 1}. ${a.guess} → ${a.actual} · ${a.points} pts`).join("\n")}\n\nOne photo. One guess. Travel through time.`;
 }
 
 export function parseProgress(
@@ -235,6 +263,7 @@ export function parseProgress(
       !Number.isInteger(value.best) ||
       value.best < 0 ||
       value.best > 5000 ||
+      (value.tourBest !== undefined && (!Number.isInteger(value.tourBest) || value.tourBest < 0 || value.tourBest > 12000)) ||
       !Number.isInteger(value.played) ||
       value.played < 0 ||
       !Array.isArray(value.recent)
@@ -244,6 +273,7 @@ export function parseProgress(
     const clean: Progress = {
       ...EMPTY_PROGRESS,
       best: value.best,
+      ...(value.tourBest !== undefined ? { tourBest: value.tourBest } : {}),
       played: value.played,
       recent: value.recent
         .filter((id) => typeof id === "string" && ids.has(id))
@@ -251,23 +281,25 @@ export function parseProgress(
     };
     const g = value.game;
     if (!g) return clean;
+    if (g.mode !== undefined && g.mode !== "classic" && g.mode !== "tour") return clean;
+    const rounds = GAME_MODES[gameMode(g)].rounds;
     if (
       !Array.isArray(g.photoIds) ||
-      g.photoIds.length !== ROUND_COUNT ||
-      new Set(g.photoIds).size !== ROUND_COUNT ||
+      g.photoIds.length !== rounds ||
+      new Set(g.photoIds).size !== rounds ||
       !g.photoIds.every((id) => ids.has(id)) ||
       !["guess", "reveal", "results"].includes(g.phase) ||
       !Number.isInteger(g.guess) ||
       g.guess < MIN_YEAR ||
       g.guess > MAX_YEAR ||
       !Array.isArray(g.answers) ||
-      g.answers.length > ROUND_COUNT
+      g.answers.length > rounds
     )
       return clean;
     if (
-      (g.phase === "guess" && g.answers.length >= ROUND_COUNT) ||
+      (g.phase === "guess" && g.answers.length >= rounds) ||
       (g.phase === "reveal" && g.answers.length === 0) ||
-      (g.phase === "results" && g.answers.length !== ROUND_COUNT)
+      (g.phase === "results" && g.answers.length !== rounds)
     )
       return clean;
     if (

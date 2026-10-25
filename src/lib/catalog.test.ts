@@ -37,6 +37,23 @@ test("published archive chunks match every real catalog year and asset", async (
     }
   }
 });
+test("the real archive supports twelve distinct decades in every Grand Tour and five in Classic", async () => {
+  const seed = JSON.parse(await readFile("src/data/photos.json", "utf8")) as Photo[];
+  const catalog = await openCatalog(seed, async (url) =>
+    new Response(await readFile(`public${url}`, "utf8")),
+  );
+  for (const bank of [seed, catalog.entries]) {
+    let recent: string[] = [];
+    for (let trip = 0; trip < 30; trip++) {
+      for (const count of [5, 12]) {
+        const ids = selectPhotos(bank, recent, Math.random, count);
+        assert.equal(ids.length, count);
+        assert.equal(new Set(ids.map((id) => Math.floor(bank.find((p) => p.id === id)!.year / 10))).size, count);
+        recent = [...recent, ...ids].slice(-250);
+      }
+    }
+  }
+});
 test("catalog rows reject malformed data, duplicate IDs, external chunks and unverified years", () => {
   assert.equal(parseManifest({ schemaVersion: 1, entries: [row] }).length, 1);
   for (const entries of [

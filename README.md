@@ -1,6 +1,6 @@
 # TIME TRAVELER
 
-A five-photograph historical guessing game, built with Next.js App Router, TypeScript, and Tailwind CSS. No account or backend is required.
+A historical photograph guessing game with Classic (5 photos) and Grand Tour (12 photos across 12 decades), built with Next.js App Router, TypeScript, and Tailwind CSS. No account or backend is required.
 
 ## Run locally
 
@@ -28,9 +28,11 @@ npm run build
 
 ## Play
 
-Inspect a photograph, drag the timeline or type a year from 1900–2020, and lock in your answer. Range inputs support arrow keys and Home/End. An exact answer earns 1,000 points; otherwise the score is `Math.round(1000 * Math.exp(-Math.abs(guess - actual) / 18))`. Five rounds total at most 5,000 points. Click a photograph to inspect it, then use Escape to close the view.
+Choose Classic for a quick five-photo trip (5,000 points maximum), or Grand Tour for twelve photos across twelve decades in shuffled order (12,000 points maximum). Inspect a photograph, drag the timeline or type a year from 1900–2020, and lock in your answer. Range inputs support arrow keys and Home/End. An exact answer earns 1,000 points; otherwise the score is `Math.round(1000 * Math.exp(-Math.abs(guess - actual) / 18))`. Click a photograph to inspect it, then use Escape to close the view.
 
-Best score, completed-game count, recent photograph IDs, and the current session are stored under `time-traveler-v1` in localStorage. Stored sessions are validated before use. Storage is optional: restricted private browsing still permits play. An interrupted trip can be resumed from the home screen. Recent photographs are deprioritized, and a game never contains duplicates. Unavailable photographs offer retry or a replacement without penalizing the score. Copy results uses the Clipboard API with a selectable-text fallback.
+Selection samples a decade, then a capture year, then a photograph. Every available decade gets a turn before one repeats, and large collections from a single year do not dominate. Within each era, unseen photos are preferred; if that era is exhausted, its least recently seen photo is reused to preserve coverage. The 277-photo archive has 132 images from the 1960s and 1970s, including 45 from 1975; these records retain their verified dates, but their quantity no longer determines how often players see those years.
+
+Separate Classic and Grand Tour best scores, completed-game count, recent photograph IDs, and the current session are stored under `time-traveler-v1` in localStorage. Existing five-round saves and best scores remain compatible. Stored sessions are validated before use. Storage is optional: restricted private browsing still permits play. An interrupted trip can be resumed from the home screen. A game never contains duplicate photos. Unavailable photographs offer retry or a replacement from the same era when available, without penalizing the score. Copy results uses the Clipboard API with a selectable-text fallback.
 
 ## Archive
 
@@ -43,7 +45,7 @@ The active fonts Barlow Condensed, DM Sans, and IBM Plex Mono are self-hosted. T
 - `src/lib/game.ts`: scoring, selection, guarded submission/progression, replay, results text, and session validation; pure functions tested independently.
 - `src/components/time-traveler.tsx`: single-player state, timeline, reveal, dialogs, image recovery, and persistence.
 - `src/components/home-screen.tsx`: editorial home composition and authentic photo previews.
-- `src/components/results-screen.tsx`: final score, responsive five-photo breakdown, and sharing controls.
+- `src/components/results-screen.tsx`: mode-specific final score, responsive round breakdown, and sharing controls.
 - `src/app/globals.css`: responsive editorial design, accessible states, reduced-motion handling.
 - `src/data/photos.json`: independent content collection, ready for future themed collections or a shared daily seed.
 

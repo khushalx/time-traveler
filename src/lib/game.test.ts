@@ -14,6 +14,9 @@ import {
   submitGuess,
   advanceRound,
   beginTrip,
+  GAME_MODES,
+  gameMode,
+  performance,
   type Photo,
 } from "./game.ts";
 
@@ -143,18 +146,92 @@ test("scoring uses the exact exponential curve, is symmetric, and awards 1000 on
     5000,
   );
 });
-test("five distinct photos avoid recent rounds, then choose the oldest seen", () => {
+test("five distinct photos avoid recent rounds and revisit the oldest within each exhausted era", () => {
   const selected = selectPhotos(
     photos,
     photos.slice(0, 15).map((p) => p.id),
   );
   assert.equal(selected.length, 5);
   assert.equal(new Set(selected).size, 5);
-  assert.ok(
-    selected.every((id) => !photos.slice(0, 15).some((p) => p.id === id)),
-  );
+  for (const id of selected) {
+    const chosen = photos.find((p) => p.id === id)!;
+    if (Number(id.split("-")[1]) < 15) {
+      assert.ok(!photos.slice(15).some((p) => Math.floor(p.year / 10) === Math.floor(chosen.year / 10)), "Only exhausted eras may revisit a recent photograph");
+    }
+  }
   const recent = photos.map((p) => p.id);
-  assert.deepEqual(selectPhotos(photos, recent), recent.slice(0, 5));
+  const revisited = selectPhotos(photos, recent, () => 0);
+  assert.deepEqual(revisited, ["photo-0", "photo-10", "photo-20", "photo-1", "photo-11"]);
+});
+
+function seededRandom(seed: number) {
+  return () => {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    return seed / 4294967296;
+  };
+}
+
+test("overrepresented years do not dominate: eras and years are sampled independently of collection size", () => {
+  const bank = Array.from({ length: 12 }, (_, i) => ({ ...photos[0], id: `era-${i}`, year: 1901 + i * 10 }));
+  bank.push(...Array.from({ length: 1000 }, (_, i) => ({ ...photos[0], id: `dense-${i}`, year: 1975 })));
+  const random = seededRandom(44);
+  const counts = new Map<number, number>();
+  let denseYear = 0;
+  for (let i = 0; i < 1000; i++) {
+    const selected = selectPhotos(bank, [], random).map((id) => bank.find((p) => p.id === id)!);
+    assert.equal(new Set(selected.map((p) => Math.floor(p.year / 10))).size, 5);
+    assert.equal(new Set(selected.map((p) => p.year)).size, 5);
+    for (const p of selected) {
+      const decade = Math.floor(p.year / 10);
+      counts.set(decade, (counts.get(decade) ?? 0) + 1);
+      if (p.year === 1975) denseYear++;
+    }
+  }
+  for (const count of counts.values()) assert.ok(count > 340 && count < 500);
+  assert.ok(denseYear > 150 && denseYear < 280, "1975 shares its decade with 1971, even with 1000 more photos");
+});
+
+test("Grand Tour covers every decade even when a rare era was recently exhausted", () => {
+  const bank = Array.from({ length: 12 }, (_, i) => ({ ...photos[0], id: `era-${i}`, year: 1901 + i * 10 }));
+  bank.push(...Array.from({ length: 80 }, (_, i) => ({ ...photos[0], id: `dense-${i}`, year: 1975 })));
+  const recent = bank.slice(0, 7).map((p) => p.id);
+  const ids = selectPhotos(bank, recent, seededRandom(5), GAME_MODES.tour.rounds);
+  assert.equal(ids.length, 12);
+  assert.equal(new Set(ids).size, 12);
+  assert.equal(new Set(ids.map((id) => Math.floor(bank.find((p) => p.id === id)!.year / 10))).size, 12);
+});
+
+test("both modes complete, persist, replay and share with separate score ceilings and bests", () => {
+  let progress = beginTrip({ ...EMPTY_PROGRESS, best: 4200 }, photos, photos.length, "tour");
+  assert.equal(gameMode(progress.game!), "tour");
+  assert.equal(progress.game!.photoIds.length, 12);
+  for (let round = 0; round < 12; round++) {
+    const photo = photos.find((p) => p.id === progress.game!.photoIds[round])!;
+    progress = { ...progress, game: submitGuess(progress.game!, photo, photo.year) };
+    progress = parseProgress(JSON.stringify(progress), photos);
+    assert.equal(progress.game!.phase, "reveal");
+    progress = advanceRound(progress);
+    assert.equal(progress.game!.phase, round === 11 ? "results" : "guess");
+  }
+  assert.equal(progress.best, 4200);
+  assert.equal(progress.tourBest, 12000);
+  assert.equal(progress.played, 1);
+  assert.equal(advanceRound(progress), progress);
+  assert.match(shareResults(progress.game!.answers, "tour"), /Grand Tour\n12,000 \/ 12,000 points/);
+  assert.match(shareResults(progress.game!.answers, "tour"), /12\./);
+  assert.deepEqual(performance(10800, 12000), performance(4500));
+  const replay = beginTrip(progress, photos, photos.length, "classic");
+  assert.equal(replay.game!.photoIds.length, 5);
+  assert.equal(replay.tourBest, 12000);
+  assert.equal(replay.best, 4200);
+  assert.equal(replay.game!.answers.length, 0);
+});
+
+test("invalid modes, mode-length mismatches and tampered Grand Tour bests are rejected", () => {
+  const tour = beginTrip({ ...EMPTY_PROGRESS }, photos, photos.length, "tour");
+  assert.equal(parseProgress(JSON.stringify({ ...tour, game: { ...tour.game, mode: "other" } }), photos).game, null);
+  assert.equal(parseProgress(JSON.stringify({ ...tour, game: { ...tour.game, mode: "classic" } }), photos).game, null);
+  assert.deepEqual(parseProgress(JSON.stringify({ ...tour, tourBest: 12001 }), photos), EMPTY_PROGRESS);
 });
 test("year input is finite and bounded", () => {
   assert.equal(clampYear(1800), 1900);

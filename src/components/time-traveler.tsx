@@ -13,6 +13,8 @@ import {
   MAX_YEAR,
   RECENT_LIMIT,
   EMPTY_PROGRESS,
+  GAME_MODES,
+  gameMode,
   clampYear,
   beginTrip,
   advanceRound,
@@ -23,6 +25,7 @@ import {
   shareResults,
   totalScore,
   type Game,
+  type GameMode,
   type Photo,
   type Progress,
 } from "@/lib/game";
@@ -134,6 +137,7 @@ export default function TimeTraveler() {
   const [progress, setProgress] = useState<Progress>(EMPTY_PROGRESS);
   const [ready, setReady] = useState(false);
   const [screen, setScreen] = useState<"home" | "game">("home");
+  const [mode, setMode] = useState<GameMode>("classic");
   const [modal, setModal] = useState<Modal>(null);
   const [copied, setCopied] = useState(false);
   const [copyText, setCopyText] = useState(false);
@@ -146,7 +150,7 @@ export default function TimeTraveler() {
   const roundIndex = game
     ? game.phase === "reveal"
       ? game.answers.length - 1
-      : Math.min(game.answers.length, 4)
+      : Math.min(game.answers.length, game.photoIds.length - 1)
     : 0;
   const photo = game
     ? photos.find((p) => p.id === game.photoIds[roundIndex])!
@@ -199,6 +203,7 @@ export default function TimeTraveler() {
         ...restored.filter((p) => !seedPhotos.some((s) => s.id === p.id)),
       ]);
       setProgress(stored);
+      if (stored.game) setMode(gameMode(stored.game));
       setReady(true);
     }
     void restore();
@@ -230,7 +235,7 @@ export default function TimeTraveler() {
     if (screen === "game") heading.current?.focus({ preventScroll: true });
   }, [screen, game?.phase, roundIndex]);
 
-  async function start() {
+  async function start(selectedMode: GameMode = mode) {
     if (starting.current) return;
     starting.current = true;
     setReady(false);
@@ -238,7 +243,7 @@ export default function TimeTraveler() {
     let selected: Photo[];
     try {
       selected = library
-        ? await library.load(selectPhotos(library.entries, progress.recent))
+        ? await library.load(selectPhotos(library.entries, progress.recent, Math.random, GAME_MODES[selectedMode].rounds))
         : seedPhotos;
     } catch {
       selected = seedPhotos;
@@ -249,13 +254,14 @@ export default function TimeTraveler() {
     ]);
     canSave.current = true;
     setProgress((p) =>
-      beginTrip(p, selected, library?.total ?? seedPhotos.length),
+      beginTrip(p, selected, library?.total ?? seedPhotos.length, selectedMode),
     );
     setCopied(false);
     setCopyText(false);
     setYearDraft(null);
     setLoadedPhotoId(null);
     setScreen("game");
+    setMode(selectedMode);
     setReady(true);
     starting.current = false;
     window.scrollTo({ top: 0 });
@@ -286,11 +292,13 @@ export default function TimeTraveler() {
     const library = catalog.current;
     let candidate: Photo | undefined;
     try {
+      const available = (library?.entries ?? seedPhotos).filter((p) => !game.photoIds.includes(p.id));
+      const sameEra = available.filter((p) => p.year && Math.floor(p.year / 10) === Math.floor(photo!.year / 10));
       const id = selectPhotos(
-        (library?.entries ?? seedPhotos).filter(
-          (p) => !game.photoIds.includes(p.id),
-        ),
+        sameEra.length ? sameEra : available,
         progress.recent,
+        Math.random,
+        1,
       )[0];
       candidate = library
         ? (await library.load([id]))[0]
@@ -323,7 +331,7 @@ export default function TimeTraveler() {
   async function copyResults() {
     if (!game) return;
     try {
-      await navigator.clipboard.writeText(shareResults(game.answers));
+      await navigator.clipboard.writeText(shareResults(game.answers, gameMode(game)));
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2500);
     } catch {
@@ -331,6 +339,10 @@ export default function TimeTraveler() {
     }
   }
   const activeGame = game && game.phase !== "results";
+  function home() {
+    setScreen("home");
+    window.scrollTo({ top: 0 });
+  }
 
   return (
     <div
@@ -339,7 +351,7 @@ export default function TimeTraveler() {
       <header className="site-header">
         <button
           className="brand"
-          onClick={() => setScreen("home")}
+          onClick={home}
           aria-label="Time Traveler home"
         >
           <TimeMark />
@@ -349,7 +361,7 @@ export default function TimeTraveler() {
           <div className="header-game-status">
             <span className="header-round">
               ROUND <strong>{String(roundIndex + 1).padStart(2, "0")}</strong> /
-              05
+              {String(game.photoIds.length).padStart(2, "0")}
             </span>
             <span className="header-score">
               <strong>{number(score)}</strong> <span>POINTS</span>
@@ -366,19 +378,22 @@ export default function TimeTraveler() {
         <HomeScreen
           photos={photos}
           ready={ready}
-          resume={!!activeGame}
-          onStart={start}
+          mode={mode}
+          resumeMode={activeGame ? gameMode(game) : undefined}
+          onModeChange={setMode}
+          onStart={() => start(mode)}
           onResume={() => setScreen("game")}
         />
       ) : game?.phase === "results" ? (
         <ResultsScreen
           game={game}
           photos={photos}
-          best={progress.best}
+          best={gameMode(game) === "tour" ? progress.tourBest ?? 0 : progress.best}
           copied={copied}
           copyText={copyText}
           headingRef={heading}
-          onStart={start}
+          onStart={() => start(gameMode(game))}
+          onChooseMode={home}
           onCopy={copyResults}
         />
       ) : photo && game ? (
@@ -393,7 +408,7 @@ export default function TimeTraveler() {
           />
           <div className="photo-meta">
             <span>
-              PHOTOGRAPH {String(roundIndex + 1).padStart(2, "0")} / 05
+              {GAME_MODES[gameMode(game)].name.toUpperCase()} · PHOTOGRAPH {String(roundIndex + 1).padStart(2, "0")} / {String(game.photoIds.length).padStart(2, "0")}
             </span>
             <span>
               {result ? photo.category : "Look closer. Every detail is a clue."}
@@ -420,7 +435,7 @@ export default function TimeTraveler() {
                   </div>
                 </div>
                 <button className="primary-button" onClick={next}>
-                  {game.answers.length === 5
+                  {game.answers.length === game.photoIds.length
                     ? "SEE YOUR RESULTS"
                     : "NEXT PHOTO"}
                   <Arrow />
@@ -625,7 +640,8 @@ export default function TimeTraveler() {
                 <div>
                   <h3>Look closer.</h3>
                   <p>
-                    Five real photographs. Look for clues in the cars, clothes,
+                    Choose Classic for five photos or Grand Tour for twelve
+                    photos across twelve decades. Look for clues in the cars, clothes,
                     architecture, and everyday details.
                   </p>
                 </div>

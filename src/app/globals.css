@@ -282,8 +282,44 @@ strong {
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
-  margin-top: 30px;
+  margin-top: 22px;
 }
+.mode-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 0;
+  padding: 0;
+  margin: 26px 0 0;
+  max-width: 470px;
+  min-width: 0;
+}
+.mode-picker legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font: 500 11px var(--sans);
+  letter-spacing: 1.6px;
+  color: var(--muted);
+}
+.mode-option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 12px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color 200ms, background 200ms;
+}
+.mode-option + .mode-option { margin-left: -1px; }
+.mode-option.is-selected {
+  border-color: var(--accent);
+  background: #c4a5740c;
+  position: relative;
+}
+.mode-option:focus-within { outline: 2px solid var(--accent); outline-offset: 3px; }
+.mode-option input { width: 16px; height: 16px; accent-color: var(--accent); flex-shrink: 0; }
+.mode-option strong { display: block; font: 700 23px var(--display); }
+.mode-option small { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; }
 .home-actions > .primary-button {
   min-width: 254px;
 }
@@ -792,9 +828,11 @@ strong {
 }
 .final-score {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: center;
   gap: 18px;
+  row-gap: 0;
   margin-top: 22px;
 }
 .final-score > span:first-child {
@@ -834,6 +872,8 @@ strong {
   margin: 34px 0 0;
   padding: 0;
 }
+.tour-reel { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 30px; }
+.choose-mode-link { display: block; margin: 20px auto 0; }
 .result-round {
   min-width: 0;
 }
@@ -1323,6 +1363,15 @@ dialog::backdrop {
     font-size: 104px;
   }
 }
+@media (min-width: 901px) and (max-height: 850px) {
+  .home-hero { padding: 24px 0 32px; }
+  .home-copy h1 { font-size: clamp(66px, 6.3vw, 90px); }
+  .home-copy > .eyebrow { margin-bottom: 18px; }
+  .home-description { margin-top: 20px; font-size: 18px; }
+  .home-archive { height: 480px; }
+  .mode-picker { margin-top: 20px; }
+  .game-promise { margin-top: 16px; font-size: 14px; }
+}
 @media (min-width: 700px) and (max-width: 900px) and (max-height: 850px) {
   .home-main {
     align-items: flex-start;
@@ -1416,7 +1465,7 @@ dialog::backdrop {
     margin-bottom: 20px;
   }
   .home-copy h1 {
-    font-size: clamp(68px, 17.8vw, 82px);
+    font-size: clamp(54px, 17.8vw, 82px);
     letter-spacing: -0.7px;
     line-height: 0.96;
   }
@@ -1428,6 +1477,8 @@ dialog::backdrop {
   .home-actions {
     margin-top: 25px;
   }
+  .mode-option { padding: 14px 8px; gap: 8px; }
+  .mode-option strong { font-size: 22px; }
   .primary-button,
   .secondary-button {
     min-height: 56px;
@@ -1841,7 +1892,7 @@ dialog::backdrop {
     font-size: 23px;
   }
   .home-copy h1 {
-    font-size: 66px;
+    font-size: clamp(54px, 17.8vw, 66px);
   }
   .home-copy > .eyebrow {
     font-size: 11px;
