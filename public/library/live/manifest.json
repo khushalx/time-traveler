@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "59193b549e3e9d6a",
-  "total": 35,
-  "updatedAt": "2026-10-25T09:10:30.068Z",
+  "version": "b44b1fcaf7c9f660",
+  "total": 64,
+  "updatedAt": "2026-10-26T10:12:53.700Z",
   "entries": [
     [
       "commons-101321291",
@@ -11,7 +11,7 @@
       "Europe",
       "medium",
       0.8566666666666667,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
     ],
     [
       "commons-108265583",
@@ -20,7 +20,7 @@
       "Europe",
       "hard",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
     ],
     [
       "commons-109436300",
@@ -29,7 +29,7 @@
       "Europe",
       "medium",
       0.9866666666666667,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
     ],
     [
       "commons-113651658",
@@ -38,7 +38,7 @@
       "Europe",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
     ],
     [
       "commons-132624684",
@@ -47,7 +47,7 @@
       "Unspecified",
       "hard",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
     ],
     [
       "commons-15335613",
@@ -56,7 +56,7 @@
       "North America",
       "medium",
       0.8475,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
     ],
     [
       "commons-184705421",
@@ -65,7 +65,187 @@
       "North America",
       "hard",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-24788096",
+      2013,
+      "Fashion",
+      "Unspecified",
+      "medium",
+      0.8333333333333334,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-24788188",
+      2013,
+      "Fashion",
+      "Unspecified",
+      "medium",
+      0.8333333333333334,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-24788191",
+      2013,
+      "Fashion",
+      "Unspecified",
+      "medium",
+      0.8333333333333334,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-24788192",
+      2013,
+      "Fashion",
+      "Unspecified",
+      "medium",
+      0.8333333333333334,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-24788195",
+      2013,
+      "Fashion",
+      "Unspecified",
+      "medium",
+      0.8333333333333334,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-24788198",
+      2013,
+      "Fashion",
+      "Unspecified",
+      "medium",
+      0.8333333333333334,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-24788199",
+      2013,
+      "Fashion",
+      "Unspecified",
+      "medium",
+      0.8333333333333334,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-24788203",
+      2013,
+      "Fashion",
+      "Unspecified",
+      "medium",
+      0.8333333333333334,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820231",
+      2013,
+      "Fashion",
+      "Oceania",
+      "medium",
+      0.9675,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820232",
+      2013,
+      "Everyday life",
+      "Oceania",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820233",
+      2013,
+      "Everyday life",
+      "Oceania",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820239",
+      2013,
+      "Everyday life",
+      "Oceania",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820243",
+      2013,
+      "Fashion",
+      "Oceania",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820247",
+      2013,
+      "Everyday life",
+      "Oceania",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820248",
+      2013,
+      "Fashion",
+      "Oceania",
+      "medium",
+      0.8891666666666667,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820250",
+      2013,
+      "Fashion",
+      "Oceania",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820254",
+      2013,
+      "Everyday life",
+      "Oceania",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820267",
+      2013,
+      "Fashion",
+      "Oceania",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/0.json"
+    ],
+    [
+      "commons-30820270",
+      2013,
+      "Fashion",
+      "Oceania",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
+    ],
+    [
+      "commons-40387075",
+      1996,
+      "Architecture",
+      "North America",
+      "hard",
+      0.6191666666666666,
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-48634463",
@@ -74,7 +254,7 @@
       "Europe",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-50788201",
@@ -83,7 +263,16 @@
       "Europe",
       "hard",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
+    ],
+    [
+      "commons-56851366",
+      2013,
+      "Architecture",
+      "North America",
+      "medium",
+      1,
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-60787091",
@@ -92,7 +281,7 @@
       "North America",
       "hard",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-66591700",
@@ -101,7 +290,7 @@
       "Europe",
       "medium",
       0.9,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-66591701",
@@ -110,7 +299,7 @@
       "Europe",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-67164475",
@@ -119,7 +308,7 @@
       "Europe",
       "medium",
       0.9,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-68693744",
@@ -128,7 +317,7 @@
       "Europe",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-68693745",
@@ -137,7 +326,7 @@
       "Europe",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-72264079",
@@ -146,7 +335,7 @@
       "Europe",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-72526728",
@@ -155,7 +344,7 @@
       "Europe",
       "medium",
       0.9575,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-72811656",
@@ -164,7 +353,7 @@
       "Europe",
       "medium",
       0.7775,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-72811657",
@@ -173,7 +362,7 @@
       "Europe",
       "medium",
       0.8341666666666666,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-72811658",
@@ -182,7 +371,7 @@
       "Europe",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-72872489",
@@ -191,7 +380,7 @@
       "Europe",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-72955926",
@@ -200,7 +389,7 @@
       "Unspecified",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-78809516",
@@ -209,7 +398,7 @@
       "Unspecified",
       "medium",
       0.8333333333333334,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-78809683",
@@ -218,7 +407,7 @@
       "Unspecified",
       "medium",
       0.8333333333333334,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-78809733",
@@ -227,7 +416,7 @@
       "Oceania",
       "medium",
       0.8333333333333334,
-      "/library/live/releases/59193b549e3e9d6a/0.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-79907701",
@@ -236,7 +425,7 @@
       "Oceania",
       "medium",
       0.8833333333333333,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-80896668",
@@ -245,7 +434,7 @@
       "Oceania",
       "medium",
       1,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-86801427",
@@ -254,7 +443,7 @@
       "Unspecified",
       "medium",
       0.8333333333333334,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-86801428",
@@ -263,7 +452,7 @@
       "Unspecified",
       "medium",
       0.8333333333333334,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/1.json"
     ],
     [
       "commons-86801429",
@@ -272,7 +461,7 @@
       "Unspecified",
       "medium",
       0.8333333333333334,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
     ],
     [
       "commons-86801433",
@@ -281,7 +470,7 @@
       "Unspecified",
       "medium",
       0.8333333333333334,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
     ],
     [
       "commons-86801438",
@@ -290,7 +479,7 @@
       "Unspecified",
       "medium",
       0.8333333333333334,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
     ],
     [
       "commons-86801445",
@@ -299,7 +488,7 @@
       "Unspecified",
       "medium",
       0.8333333333333334,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
     ],
     [
       "commons-88926101",
@@ -308,7 +497,7 @@
       "Europe",
       "hard",
       1,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
     ],
     [
       "commons-88929587",
@@ -317,7 +506,79 @@
       "Europe",
       "hard",
       1,
-      "/library/live/releases/59193b549e3e9d6a/1.json"
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
+    ],
+    [
+      "commons-99114442",
+      2003,
+      "Transport",
+      "Europe",
+      "medium",
+      0.7475,
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
+    ],
+    [
+      "commons-99114444",
+      2003,
+      "Transport",
+      "Europe",
+      "medium",
+      0.6225,
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
+    ],
+    [
+      "commons-99114445",
+      2003,
+      "Transport",
+      "Europe",
+      "medium",
+      0.8508333333333333,
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
+    ],
+    [
+      "commons-99114449",
+      2003,
+      "Transport",
+      "Europe",
+      "medium",
+      0.8475,
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
+    ],
+    [
+      "commons-99114452",
+      2003,
+      "Transport",
+      "Europe",
+      "medium",
+      0.8466666666666667,
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
+    ],
+    [
+      "commons-99114454",
+      2003,
+      "Transport",
+      "Europe",
+      "medium",
+      0.7041666666666667,
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
+    ],
+    [
+      "commons-99114455",
+      2003,
+      "Transport",
+      "Europe",
+      "medium",
+      0.71,
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
+    ],
+    [
+      "commons-99114462",
+      2003,
+      "Transport",
+      "Europe",
+      "medium",
+      0.755,
+      "/library/live/releases/b44b1fcaf7c9f660/2.json"
     ]
   ]
 }
