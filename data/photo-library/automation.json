@@ -1,19 +1,20 @@
 {
-  "sequence": 5,
+  "sequence": 6,
   "policy": "commons-auto-v1",
-  "startedAt": "2026-10-26T10:09:19.013Z",
-  "completedAt": "2026-10-26T10:12:53.703Z",
-  "added": 29,
-  "total": 64,
-  "tag": "photo-live-8cd59794c8c6d323",
-  "version": "b44b1fcaf7c9f660",
+  "startedAt": "2026-10-27T09:48:18.799Z",
+  "completedAt": "2026-10-27T09:51:23.429Z",
+  "added": 30,
+  "total": 94,
+  "tag": "photo-live-1f8daeb75519dada",
+  "version": "74ec16efde291bf8",
   "checked": 33,
   "held": {
-    "ocr-visible-year": 1,
-    "ocr-watermark-or-copyright": 3
+    "ocr-watermark-or-copyright": 1,
+    "ocr-visible-year": 2,
+    "ocr-text-heavy": 2
   },
-  "liveTotal": 64,
-  "playableTotal": 341,
-  "discovered": 246,
+  "liveTotal": 94,
+  "playableTotal": 371,
+  "discovered": 187,
   "providerFailures": []
 }
