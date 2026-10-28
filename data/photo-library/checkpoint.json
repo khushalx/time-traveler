@@ -1332,7 +1332,101 @@
         "search": "London fashion intitle:2012 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "496f553e0bf2524c1b68c6f42badf69ec9c0f1ce2d605dadf61ec3d2bdfb1f7b": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1939,
+        "search": "fashion intitle:1939 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3e10d8c1c24ef56e132993e43913369ce4995a5ebc51d3e8fed41f49d1c45e43": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1999,
+        "search": "factory intitle:1999 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "06a09480a0989912ab08586d43accdd559c597b3bb55a92b1153b3e5d2ae0e7d": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1976,
+        "search": "music intitle:1976 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e46d93ec8c9c04eece9183ef8d7053056cb19e3e0cc687932139f350217ea19d": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1926,
+        "search": "street intitle:1926 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c1421e4e5c73e27859262f1b83478123af9738e0892ca29472c9d83d99a7a511": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1954,
+        "search": "train intitle:1954 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "cd140f8e07515abd32539ba209f128aa3a9de902e626790795343b661f71c02f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2008,
+        "search": "family intitle:2008 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5758d6015b45999ebc06324b8e9e800adb63cce60cf84b0cc160e036ca5e89e8": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1961,
+        "search": "market intitle:1961 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "bf2aae352af61e7bad250beee5bd0827c64ede59e3c196bbd2934506b6d79641": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1925,
+        "search": "cars intitle:1925 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d7aeb24fea3f6d89464ec261632a42e30120ba68f7da52a763c3e5c961f02516": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1919,
+        "search": "school intitle:1919 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
-  "failures": []
+  "failures": [
+    {
+      "source": "commons",
+      "query": "city intitle:1974 filetype:bitmap",
+      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
+      "at": "2026-10-28T10:35:17.759Z"
+    },
+    {
+      "source": "commons",
+      "id": "commons-102922640",
+      "message": "Image dimensions or aspect ratio fail quality policy",
+      "at": "2026-10-28T10:36:51.946Z"
+    }
+  ]
 }

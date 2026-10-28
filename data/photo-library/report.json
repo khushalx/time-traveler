@@ -1,13 +1,13 @@
 {
   "policyVersion": 1,
-  "candidatesDiscovered": 3814,
+  "candidatesDiscovered": 4214,
   "importedApproved": 251,
   "existingCurated": 26,
-  "totalPlayable": 371,
-  "liveApproved": 94,
-  "rejected": 1241,
-  "pendingReview": 2228,
-  "duplicatesRemoved": 9,
+  "totalPlayable": 381,
+  "liveApproved": 104,
+  "rejected": 1367,
+  "pendingReview": 2492,
+  "duplicatesRemoved": 11,
   "byDecade": {
     "1900s": 5,
     "1910s": 3,
@@ -45,23 +45,37 @@
     "Unspecified": 57
   },
   "reviewReasons": {
-    "ambiguous-or-missing-capture-date": 1202,
+    "ambiguous-or-missing-capture-date": 1318,
+    "asset-validation-failed: Image dimensions or aspect ratio fail quality policy": 1,
     "collection-concentration-requires-review": 62,
-    "conflicting-or-approximate-context-date": 571,
-    "discovery-year-conflicts-with-capture-date": 2163,
-    "extreme-aspect-ratio": 93,
-    "low-source-resolution": 735,
+    "conflicting-or-approximate-context-date": 619,
+    "discovery-year-conflicts-with-capture-date": 2397,
+    "extreme-aspect-ratio": 107,
+    "low-source-resolution": 822,
     "missing-required-creator": 1,
-    "ocr-unavailable": 99,
-    "source-restrictions-require-review": 95,
-    "title-date-conflicts-with-capture-date": 749,
-    "unclear-or-incompatible-rights": 1504,
-    "unsuitable-or-non-photographic-subject": 340,
+    "ocr-unavailable": 104,
+    "source-restrictions-require-review": 112,
+    "title-date-conflicts-with-capture-date": 867,
+    "unclear-or-incompatible-rights": 1682,
+    "unsuitable-or-non-photographic-subject": 377,
     "Visual review rejected: redundant shoot coverage, visible dates or watermarks, insufficient period context, poor clarity, or non-photographic subject.": 167,
-    "visual-duplicate": 9,
-    "visual-review-required": 99
+    "visual-duplicate": 11,
+    "visual-review-required": 104
   },
-  "failures": [],
+  "failures": [
+    {
+      "source": "commons",
+      "query": "city intitle:1974 filetype:bitmap",
+      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
+      "at": "2026-10-28T10:35:17.759Z"
+    },
+    {
+      "source": "commons",
+      "id": "commons-102922640",
+      "message": "Image dimensions or aspect ratio fail quality policy",
+      "at": "2026-10-28T10:36:51.946Z"
+    }
+  ],
   "sourceStatus": {
     "smithsonian": "optional key missing",
     "europeana": "optional key missing"
