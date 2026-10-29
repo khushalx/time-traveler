@@ -1413,6 +1413,114 @@
         "search": "school intitle:1919 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "19da11104ebf1f003e694951cbd447e82632d2985eafed1d3a8302a265858367": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1987,
+        "search": "China factory intitle:1987 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4ec9ec22a2a7e6e298d0c45f2d829e83eec15015470f2847ffdce4a802dc3921": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1934,
+        "search": "Kenya music intitle:1934 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "475a69fc321374a09d5577a901ccee641646429f5d2292dc622f849d10a7b9c1": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1933,
+        "search": "New York city intitle:1933 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ffa47517de3dc485824cddbaaf228f2db2df91116231d60e949697717a4e4150": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2020,
+        "search": "France train intitle:2020 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "54d9f9f0ba119679ec4de280e49d6fa48a84e66c46e8ba0d72fd464f4ad175ac": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2002,
+        "search": "India family intitle:2002 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e5ab9bebf96893aedf7e9c6fe9fe7a56fece0d10f69dd117c3109c2d8e5df13f": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 2006,
+        "search": "Japan market intitle:2006 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "163f80b5afa2d3c86a7441e4e09650ba020d07c2c3ebef35f0beb94c55f746e2": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1998,
+        "search": "Egypt cars intitle:1998 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e239f84cc19cd687b17c068c31dd2c2404fce97bb03a046e7a705385a520fa40": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1909,
+        "search": "Brazil school intitle:1909 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "14192b4cfb6070ef3f5d4d42a78beb26584a9ee1ba2a1de0a0c355848def0333": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1938,
+        "search": "London fashion intitle:1938 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "83f13890b38eb50df0334f596453a5d54bb55b260e782688bc36a1fb7638933b": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1952,
+        "search": "Mexico factory intitle:1952 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8862000f641be2da306fc8a06db3edf911c55ee30b88014919381102607cd39f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1917,
+        "search": "New York train intitle:1917 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "68bdda0b582350f1db2ccbc5f953f969fb51650922c016f2d988e113c5e55884": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1983,
+        "search": "Singapore family intitle:1983 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": [
@@ -1427,6 +1535,24 @@
       "id": "commons-102922640",
       "message": "Image dimensions or aspect ratio fail quality policy",
       "at": "2026-10-28T10:36:51.946Z"
+    },
+    {
+      "source": "commons",
+      "query": "Australia music intitle:1981 filetype:bitmap",
+      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
+      "at": "2026-10-29T10:56:07.236Z"
+    },
+    {
+      "source": "commons",
+      "query": "China city intitle:1923 filetype:bitmap",
+      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
+      "at": "2026-10-29T10:56:07.940Z"
+    },
+    {
+      "source": "commons",
+      "query": "Kenya street intitle:1926 filetype:bitmap",
+      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
+      "at": "2026-10-29T10:56:09.022Z"
     }
   ]
 }
