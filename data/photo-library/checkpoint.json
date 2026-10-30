@@ -1521,6 +1521,114 @@
         "search": "Singapore family intitle:1983 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "babbca9a2fd49b3688a83470d8878f82d896e05202566d30d17a03bcc85e7d54": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1957,
+        "search": "Kenya music intitle:1957 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f1756453c56f8606caf2c9f8f086a30267b7140f3cde43ce92dd612d7701c6f7": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1921,
+        "search": "New York city intitle:1921 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8aca4de8d7877b55d254c94b1cc1413e8ab65dd25fafd43a1f22fb88006b2388": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1944,
+        "search": "Singapore street intitle:1944 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5d226842552388216179105207f27bc4c71d7fc513cc42343e2bc7c0b8bd5c54": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2017,
+        "search": "France train intitle:2017 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "614493f16cbbc7f78a7670abfb65125f1edc0e20164a7a8f06d736d2fdbc9b15": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1997,
+        "search": "India family intitle:1997 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c5dbec3b2ec301ec6068f54975b9c39415f291e020eab0dfc3637e25627dd822": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1916,
+        "search": "Japan market intitle:1916 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "0ac18547ec09fce3fab4db048aa3143f1d39da13736e39a4651ddd50d21c50a2": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1987,
+        "search": "Egypt cars intitle:1987 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8faf339ca39fefe245bea0c9d448456d8e6bfd278375de06524816637168b061": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1927,
+        "search": "Brazil school intitle:1927 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "43e8ebc9e55edab5cc46e65b3566e283c123e2355cd930aebfa25590645681a2": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1984,
+        "search": "London fashion intitle:1984 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3c67aa483afda442ca860aadb3f38da8e7bf2722bcc5b7f9e220efe0a3029e27": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1911,
+        "search": "Mexico factory intitle:1911 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "2f61ef2c1d9b9b216369c146563dd6c2b7be7b092a2c0a015008168507cfc756": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1963,
+        "search": "China city intitle:1963 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "55314ec760d5af1e138c7e3ed73fef8959e515e97273ea0a59c88bf429017b53": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1981,
+        "search": "Kenya street intitle:1981 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": [
@@ -1553,6 +1661,12 @@
       "query": "Kenya street intitle:1926 filetype:bitmap",
       "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
       "at": "2026-10-29T10:56:09.022Z"
+    },
+    {
+      "source": "commons",
+      "query": "Australia music intitle:1952 filetype:bitmap",
+      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
+      "at": "2026-10-30T10:53:11.436Z"
     }
   ]
 }

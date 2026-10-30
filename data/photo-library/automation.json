@@ -1,37 +1,25 @@
 {
-  "sequence": 8,
+  "sequence": 9,
   "policy": "commons-auto-v1",
-  "startedAt": "2026-10-29T10:53:27.998Z",
-  "completedAt": "2026-10-29T10:57:45.529Z",
-  "added": 21,
-  "total": 125,
-  "tag": "photo-live-df25f28c06f57af2",
-  "version": "595e275f3096c0bf",
-  "checked": 23,
+  "startedAt": "2026-10-30T10:51:23.137Z",
+  "completedAt": "2026-10-30T10:54:26.497Z",
+  "added": 17,
+  "total": 142,
+  "tag": "photo-live-2d154bebc1d75eef",
+  "version": "2d9bdd121da4dc55",
+  "checked": 18,
   "held": {
-    "ocr-watermark-or-copyright": 2
+    "ocr-watermark-or-copyright": 1
   },
-  "liveTotal": 125,
-  "playableTotal": 402,
-  "discovered": 245,
+  "liveTotal": 142,
+  "playableTotal": 419,
+  "discovered": 165,
   "providerFailures": [
     {
       "source": "commons",
-      "query": "Australia music intitle:1981 filetype:bitmap",
+      "query": "Australia music intitle:1952 filetype:bitmap",
       "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
-      "at": "2026-10-29T10:56:07.236Z"
-    },
-    {
-      "source": "commons",
-      "query": "China city intitle:1923 filetype:bitmap",
-      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
-      "at": "2026-10-29T10:56:07.940Z"
-    },
-    {
-      "source": "commons",
-      "query": "Kenya street intitle:1926 filetype:bitmap",
-      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
-      "at": "2026-10-29T10:56:09.022Z"
+      "at": "2026-10-30T10:53:11.436Z"
     }
   ]
 }

@@ -1,12 +1,12 @@
 {
   "policyVersion": 1,
-  "candidatesDiscovered": 4459,
+  "candidatesDiscovered": 4624,
   "importedApproved": 251,
   "existingCurated": 26,
-  "totalPlayable": 402,
-  "liveApproved": 125,
-  "rejected": 1469,
-  "pendingReview": 2614,
+  "totalPlayable": 419,
+  "liveApproved": 142,
+  "rejected": 1562,
+  "pendingReview": 2669,
   "duplicatesRemoved": 11,
   "byDecade": {
     "1900s": 5,
@@ -45,22 +45,22 @@
     "Unspecified": 57
   },
   "reviewReasons": {
-    "ambiguous-or-missing-capture-date": 1376,
+    "ambiguous-or-missing-capture-date": 1406,
     "asset-validation-failed: Image dimensions or aspect ratio fail quality policy": 1,
-    "collection-concentration-requires-review": 74,
-    "conflicting-or-approximate-context-date": 662,
-    "discovery-year-conflicts-with-capture-date": 2473,
-    "extreme-aspect-ratio": 114,
-    "low-source-resolution": 869,
+    "collection-concentration-requires-review": 88,
+    "conflicting-or-approximate-context-date": 670,
+    "discovery-year-conflicts-with-capture-date": 2509,
+    "extreme-aspect-ratio": 122,
+    "low-source-resolution": 937,
     "missing-required-creator": 1,
-    "ocr-unavailable": 154,
+    "ocr-unavailable": 164,
     "source-restrictions-require-review": 113,
-    "title-date-conflicts-with-capture-date": 887,
-    "unclear-or-incompatible-rights": 1826,
-    "unsuitable-or-non-photographic-subject": 434,
+    "title-date-conflicts-with-capture-date": 890,
+    "unclear-or-incompatible-rights": 1938,
+    "unsuitable-or-non-photographic-subject": 458,
     "Visual review rejected: redundant shoot coverage, visible dates or watermarks, insufficient period context, poor clarity, or non-photographic subject.": 167,
     "visual-duplicate": 11,
-    "visual-review-required": 154
+    "visual-review-required": 164
   },
   "failures": [
     {
@@ -92,6 +92,12 @@
       "query": "Kenya street intitle:1926 filetype:bitmap",
       "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
       "at": "2026-10-29T10:56:09.022Z"
+    },
+    {
+      "source": "commons",
+      "query": "Australia music intitle:1952 filetype:bitmap",
+      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
+      "at": "2026-10-30T10:53:11.436Z"
     }
   ],
   "sourceStatus": {
