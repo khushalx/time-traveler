@@ -1629,6 +1629,78 @@
         "search": "Kenya street intitle:1981 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "ed565a07cc4ce18a37df4d97b6c0538f099329afba84bcdeced8f9694fa28ba7": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2014,
+        "search": "city intitle:2014 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e113c7d80d034a3f41473e0668d2551b9aa9aa9267eb74ab69f6f3709b12a284": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1993,
+        "search": "street intitle:1993 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "45499a2215d08ba585b86ab21b9a23dd625d0fed77c38d5acbcdf0b8cdae6afc": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1987,
+        "search": "train intitle:1987 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "437c7d03bd458bd0698aeddc4dd181b8598f2ed694de09c8dcc9b21141c2e5e5": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1912,
+        "search": "family intitle:1912 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f05853c98ec3e4b5c217007c801804ab672524599613a605a8afb1af70f42b1b": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1951,
+        "search": "market intitle:1951 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "23b9932d3540ef947e89c26acd7985a581dace1e8f4ed34a109b0f0f6c2ab291": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1983,
+        "search": "cars intitle:1983 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ba47e4a85693476181c9059b297edb79e9ad2f8751797b5d185dc95ec4665d55": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1917,
+        "search": "school intitle:1917 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9c5ff8bbc4e253b51a5b523c40a4d6fc546a98593179ba1e83b346086c807294": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1901,
+        "search": "fashion intitle:1901 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": [

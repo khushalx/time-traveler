@@ -1,25 +1,18 @@
 {
-  "sequence": 9,
+  "sequence": 10,
   "policy": "commons-auto-v1",
-  "startedAt": "2026-10-30T10:51:23.137Z",
-  "completedAt": "2026-10-30T10:54:26.497Z",
-  "added": 17,
-  "total": 142,
-  "tag": "photo-live-2d154bebc1d75eef",
-  "version": "2d9bdd121da4dc55",
-  "checked": 18,
+  "startedAt": "2026-10-31T10:24:09.828Z",
+  "completedAt": "2026-10-31T10:28:57.598Z",
+  "added": 21,
+  "total": 163,
+  "tag": "photo-live-7400104fc904aa9e",
+  "version": "5565b4bb3744455a",
+  "checked": 23,
   "held": {
-    "ocr-watermark-or-copyright": 1
+    "ocr-watermark-or-copyright": 2
   },
-  "liveTotal": 142,
-  "playableTotal": 419,
-  "discovered": 165,
-  "providerFailures": [
-    {
-      "source": "commons",
-      "query": "Australia music intitle:1952 filetype:bitmap",
-      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
-      "at": "2026-10-30T10:53:11.436Z"
-    }
-  ]
+  "liveTotal": 163,
+  "playableTotal": 440,
+  "discovered": 400,
+  "providerFailures": []
 }
