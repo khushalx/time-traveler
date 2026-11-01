@@ -1701,6 +1701,114 @@
         "search": "fashion intitle:1901 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "abafab47a81f00c65428a5c248cddbbecb77a65aa2cb96008c6b4640c6608aac": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1933,
+        "search": "France train intitle:1933 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "cc5ef973e20c9c739e300fec6ea96d081be61147bda248db614585942cbdd60f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1927,
+        "search": "India family intitle:1927 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "2475d375fd935abcb9a82fe0b1e7c0de683247effa363326e7145feb02fbcb82": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1992,
+        "search": "Japan market intitle:1992 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b7f91d408dc18aee45573833424d042767776ccad05d722e755941438a4b4ad6": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1959,
+        "search": "Egypt cars intitle:1959 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ac71ce84f4ea5b0a7a2b47a4c4db3d8476f333a5dd7705d95381b7215422e530": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1943,
+        "search": "Brazil school intitle:1943 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "1ab11d3a58d2a873812254f57016bc625c0c79703c69af95c567c18ff55b1361": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1963,
+        "search": "London fashion intitle:1963 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8a33dce0c7117d14cf7d746714215c247af0b3bb2eaddbca86b3adaf39b8a50d": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1998,
+        "search": "Mexico factory intitle:1998 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "68e9c7a04bbdce0aefa02afacb91f05c0eefe079a7ebf9b71ccea83299cd226f": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1921,
+        "search": "Australia music intitle:1921 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f1262456ec1c59d151ff3c7a49e1d421187f67df7b0e1ad1b4f958a2f5136681": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1907,
+        "search": "China city intitle:1907 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "152033644088604dd7782ab466cbf66ef6cf81e0e98e5bd05086927f9133bb7c": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1972,
+        "search": "Kenya street intitle:1972 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6ab1e4ebb9471617e32b12985c3ee608e071b40064d753806e7fbf902895b603": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1947,
+        "search": "New York train intitle:1947 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f776615bc5e4c901e0d3d6f5defd9825162cd6024fd30e74e819d68e4cf53f73": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1902,
+        "search": "Singapore family intitle:1902 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": [
