@@ -1917,6 +1917,87 @@
         "search": "Singapore family intitle:1952 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "33e4e5a08040f8d09f8c11886823792100155105bf2e6e8c9e3287e99f9d2fe8": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1963,
+        "search": "family intitle:1963 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "fc5f2d565b2012e11e21d3eb7757d9b194157eae2b108e05697aad741d6ebd6a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1986,
+        "search": "market intitle:1986 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f1ed7e8385b2423d6eedabaf5d147132ec341160b58e4f7f71a862dd41a94bac": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1931,
+        "search": "cars intitle:1931 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b1baec9d9d53551c8995e87265de5c4a6f7f4dc779658d927f80a2147eaf0c73": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1918,
+        "search": "school intitle:1918 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e4457a0fa9e3983090752ab10085068eae5caad26ae3bb80d84917e1d2cfdd88": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1937,
+        "search": "fashion intitle:1937 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "cdfa75e739c725944fd2a2e41ceef182c8fb0b466c3138093f603e282de0eb93": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1921,
+        "search": "factory intitle:1921 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "56cdbbfa61367cf8dae6fbf740baa1494b50d987595f2fda5996b81a99bf655a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1974,
+        "search": "music intitle:1974 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b8db72811ad035085ad08c14f4e653101d0eeb5dc1f19d1482d1931eb2744d77": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1981,
+        "search": "city intitle:1981 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "453db222fb4053bb229869fa30050f8e054b3f80920b78cf7ef181f493e1bf3c": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1925,
+        "search": "street intitle:1925 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": [
