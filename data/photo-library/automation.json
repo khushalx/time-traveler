@@ -1,16 +1,13 @@
 {
-  "sequence": 14,
+  "sequence": 15,
   "policy": "commons-auto-v1",
-  "startedAt": "2026-11-04T12:06:50.505Z",
-  "completedAt": "2026-11-04T12:08:00.612Z",
-  "added": 1,
-  "total": 171,
-  "tag": "photo-live-0973cc0c535e5d77",
-  "version": "41eb41fe8ca89b49",
-  "checked": 1,
+  "startedAt": "2026-11-05T12:18:38.115Z",
+  "completedAt": "2026-11-05T12:19:29.721Z",
+  "added": 0,
+  "checked": 0,
   "held": {},
   "liveTotal": 171,
   "playableTotal": 448,
-  "discovered": 175,
+  "discovered": 120,
   "providerFailures": []
 }

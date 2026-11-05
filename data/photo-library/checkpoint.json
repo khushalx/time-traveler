@@ -2106,6 +2106,114 @@
         "search": "Japan school intitle:1952 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "1a654a07a5305126d6fada9fe6d12b9a1c0eedfd1f1013fa3c6260be45a3e994": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1933,
+        "search": "Brazil school intitle:1933 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "63a95bbb4bd4555eb1e07ff76831e38e80dff120e8b52cd5939cd5969c37c135": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1927,
+        "search": "London fashion intitle:1927 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "35dd522a78b74348a54ef23819af5e54c4a88a0b1af420c744ea24f32c033650": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1923,
+        "search": "Mexico factory intitle:1923 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3deb9edd88f496f2fb6a4aedc3fdda78da62a0ce7bf9c988e28c2ed9e8ce86e7": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1957,
+        "search": "China city intitle:1957 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b7d3293ebbeaa2eed5c0fbb361ee67dcf81b5f6852a3de8598412eb19fafd8cc": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1922,
+        "search": "Kenya street intitle:1922 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ca7886a1e8d9375164c3250e3e91d6fc5e74ba8005d7bc8bb2fffa8f28ca8393": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1956,
+        "search": "New York train intitle:1956 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "806b33940333bed8248bff201773023c9178a39f83d4f373084378449195380d": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1906,
+        "search": "Singapore family intitle:1906 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5031b5f5fe79c9ed7230870ea348c15b67e41d8e18000140a729a78b3be8cb30": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1931,
+        "search": "France market intitle:1931 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4a1797e4992ef5e04046b81e78723129720a8bc9751e4c47e63d62d0c0e79510": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1907,
+        "search": "India cars intitle:1907 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "572c9cecca0ec3635517614a5fd9b937b06ba9b8305ffef2c0e7fb80b799b93e": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1947,
+        "search": "Japan school intitle:1947 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c0c39083d88a040212529793a0308cb415d821c7cc93b2690c85bf0bc7ff808b": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1991,
+        "search": "Egypt fashion intitle:1991 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "0abc0c3231f650f2c3bd19267b9e56baa398d0be5f6e84d1af67cef15c900017": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1972,
+        "search": "Brazil factory intitle:1972 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": [
