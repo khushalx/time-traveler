@@ -2214,6 +2214,87 @@
         "search": "Brazil factory intitle:1972 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "04f73464893558351bcc789f92962535ad6cf7c61ccb448b1daac22d35f76012": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1972,
+        "search": "school intitle:1972 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c10ba149cd2ab119925537952853697d4c7c4075ff63bf8508dbaba4ea0684ee": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1906,
+        "search": "fashion intitle:1906 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "86501e967f18455a68966879101439a41665130f4a9a1e52473102746743a07b": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1956,
+        "search": "factory intitle:1956 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "db0f50303b8092cb864db47178eb175d48d2cc295e94ed9fef84e9a2acc942d1": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1925,
+        "search": "music intitle:1925 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "7eeda22fbdfe478f1b343c1c90a50f9b5e7d4c10dfabc7264a8cd2ffdf62c70e": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1928,
+        "search": "city intitle:1928 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3586517a06574e79e28b57a3f84428b3c3b8d1b59181ed6afdf02ec0f9ff4995": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1953,
+        "search": "street intitle:1953 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9f81c3f9dd68279bec18b60b137c11fa60c9671ff40bd539052df8c14855771a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1922,
+        "search": "train intitle:1922 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "1f593031d0889a2af41dba1a61ff4e94901d35f1284f59c43e955ac7ff28eb91": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1916,
+        "search": "family intitle:1916 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "427869aeb0e1b2fb45a419bc03fd2e0b2fae189b19fbf046fb983264319772f8": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1912,
+        "search": "market intitle:1912 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": [
