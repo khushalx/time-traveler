@@ -1109,7 +1109,7 @@
       "source": "commons"
     },
     "f0c6080072af58ea97011782866aa0df5358638772b687662f0c7992e6407630": {
-      "cursor": 0,
+      "cursor": 50,
       "done": false,
       "query": {
         "year": 1931,
@@ -1397,7 +1397,7 @@
       "source": "commons"
     },
     "bf2aae352af61e7bad250beee5bd0827c64ede59e3c196bbd2934506b6d79641": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1925,
@@ -2509,6 +2509,69 @@
       "query": {
         "year": 1914,
         "search": "London music intitle:1914 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "36d563848c61d6fbfb5bed8a29989c6e836f743ee439999329a485ce9b98a0d4": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1901,
+        "search": "music intitle:1901 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ae803d787c04151ec83d90c8d9c74613f3f1bdb7eb58f61bcede70933372ad3f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1907,
+        "search": "city intitle:1907 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "a9261c5ec37155b74364dfcc650d5871272fca714d06a438280d4e9582bc8f2a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1957,
+        "search": "street intitle:1957 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4f0681c6ab7d600e7dcd2edf956a1935de6bb47caa51107941b49ad6d576ef85": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1947,
+        "search": "family intitle:1947 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f48bf6cd8a0ee5cb8d5dfdc1ba4467e705729eda2ae6cb6e01763faf198cbebc": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1923,
+        "search": "market intitle:1923 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "0cae0e5ae0fcd66205f97c4082e0d98952393aad309f52ca3bdd999473c26cc9": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1937,
+        "search": "school intitle:1937 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ab39522479c09eb55978d237d50bf55dffadda42655dc4a1a024657257cec26f": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1914,
+        "search": "fashion intitle:1914 filetype:bitmap"
       },
       "source": "commons"
     }
