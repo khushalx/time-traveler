@@ -2781,6 +2781,87 @@
         "search": "China train intitle:1997 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "994b03cdb6f1094efc1a914448c1e0467b1ae8ec31a80e03231025edb5297ead": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1906,
+        "search": "train intitle:1906 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4ff8d0ac85024d38a75f91db58f8f81ea350f70ddcb3bd76a4a319a49679a339": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1919,
+        "search": "family intitle:1919 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f110da903efc738e0f9fce7ac3b91302940960ed23c9e5f321a215ce573a661e": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1991,
+        "search": "market intitle:1991 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "1d3f1b46c566f5259b47bfbcfc5e02f96ef4d4c52052469a8936bbdb29adc413": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1963,
+        "search": "cars intitle:1963 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b2abc441a129bdf61f87284ee8113b9f93d8196ae611e7522200bb8428361d29": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1938,
+        "search": "school intitle:1938 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "273394735c792b3728f9a702c46303d1a0f89c73f87f7953ce84196e3692b038": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1911,
+        "search": "fashion intitle:1911 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5745a11a7efcea9464ee696cb238a895ee4e6dec843abad37329bfe77471544d": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1926,
+        "search": "factory intitle:1926 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ae3fe7baec87a4ce52de59efcb4e1b4b304481e4e238347d57b1004fd142df61": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1947,
+        "search": "music intitle:1947 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4b2d79bd5c6b21a3205f25858bbaea4334103c81c171ad6d65c3ecfd8f217c84": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1927,
+        "search": "city intitle:1927 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": [

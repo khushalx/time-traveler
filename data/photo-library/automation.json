@@ -1,16 +1,18 @@
 {
-  "sequence": 21,
+  "sequence": 22,
   "policy": "commons-auto-v1",
-  "startedAt": "2026-11-11T11:52:31.142Z",
-  "completedAt": "2026-11-11T11:55:21.259Z",
-  "added": 3,
-  "total": 191,
-  "tag": "photo-live-17cb1de4349d7049",
-  "version": "3c0051c2d1d78bca",
-  "checked": 3,
-  "held": {},
-  "liveTotal": 191,
-  "playableTotal": 468,
-  "discovered": 312,
+  "startedAt": "2026-11-12T12:41:38.043Z",
+  "completedAt": "2026-11-12T12:46:00.686Z",
+  "added": 7,
+  "total": 198,
+  "tag": "photo-live-b3baf7d74de9fec7",
+  "version": "d6dc9d0878b6f4d6",
+  "checked": 9,
+  "held": {
+    "ocr-watermark-or-copyright": 2
+  },
+  "liveTotal": 198,
+  "playableTotal": 475,
+  "discovered": 400,
   "providerFailures": []
 }
