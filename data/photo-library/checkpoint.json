@@ -1361,7 +1361,7 @@
       "source": "commons"
     },
     "e46d93ec8c9c04eece9183ef8d7053056cb19e3e0cc687932139f350217ea19d": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1926,
@@ -1694,7 +1694,7 @@
       "source": "commons"
     },
     "9c5ff8bbc4e253b51a5b523c40a4d6fc546a98593179ba1e83b346086c807294": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1901,
@@ -2252,7 +2252,7 @@
       "source": "commons"
     },
     "7eeda22fbdfe478f1b343c1c90a50f9b5e7d4c10dfabc7264a8cd2ffdf62c70e": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1928,
@@ -3067,6 +3067,60 @@
       "query": {
         "year": 1907,
         "search": "Singapore cars intitle:1907 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "57bf8f08e6a73694181b2672206609acfb944eb2768bcd290d8b7077d6feefb0": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1934,
+        "search": "cars intitle:1934 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e34c31f8a32710ee8de354f4f9994e639492e9fa404a21ff530f5476b0471a7e": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1911,
+        "search": "school intitle:1911 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e425858719250c1e9ef98b5fc219cd900ad4da4d8c2600f2b34b984362b247de": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1907,
+        "search": "factory intitle:1907 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c83f71c13840421e182f244134cadf25fc28e71e94be441264b23f5f570e8cbd": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1923,
+        "search": "music intitle:1923 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "bd821d9c749f713cc7e47bcfae1ee74737a99c134865221c0f20e726be20dbf9": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1904,
+        "search": "train intitle:1904 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ad55b774666ffca5c21594d71083f39747ec58d3613ff191d91b7f48bd2af19b": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1927,
+        "search": "family intitle:1927 filetype:bitmap"
       },
       "source": "commons"
     }
