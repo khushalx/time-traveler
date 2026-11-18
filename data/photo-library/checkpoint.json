@@ -1991,7 +1991,7 @@
       "source": "commons"
     },
     "453db222fb4053bb229869fa30050f8e054b3f80920b78cf7ef181f493e1bf3c": {
-      "cursor": 0,
+      "cursor": 50,
       "done": false,
       "query": {
         "year": 1925,
@@ -2792,7 +2792,7 @@
       "source": "commons"
     },
     "4ff8d0ac85024d38a75f91db58f8f81ea350f70ddcb3bd76a4a319a49679a339": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1919,
@@ -3328,6 +3328,69 @@
       "query": {
         "year": 1933,
         "search": "Egypt music intitle:1933 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b6e16598ad303cf923dafbe292c669db81257d6a8431f2b0d1fdd23830a1e9c9": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1912,
+        "search": "factory intitle:1912 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "933aab747b1ee26f52b6a1f8a692df1e5b0ef72377bc8dd90228ec5d0f70acfd": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1928,
+        "search": "music intitle:1928 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ad726bd4884d0bd7dc28f2dc8d8a4700f0aea4e3f95ac785ad9d3bffeba24cba": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1901,
+        "search": "city intitle:1901 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "184c2e2a7fd9b152d49adf7360f0ca2caab841d4105dacd0a4e800869a1e1986": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1914,
+        "search": "train intitle:1914 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3f76e919b899bf70ee6d1c6bedb6246d352e5fbffbdd9203d12954c9b165367f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1933,
+        "search": "market intitle:1933 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "dc736c840ac0a98b8f70f03eee902fc5067d4db4f3e87e171740d66967bbadd0": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1909,
+        "search": "cars intitle:1909 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "417b7631b4580e633af71405976422efa54245eee9232185ace66babcac04ef8": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1944,
+        "search": "school intitle:1944 filetype:bitmap"
       },
       "source": "commons"
     }
