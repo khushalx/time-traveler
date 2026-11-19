@@ -3393,6 +3393,105 @@
         "search": "school intitle:1944 filetype:bitmap"
       },
       "source": "commons"
+    },
+    "0f5709333ece83214af374e1923178a0d6f46822a251d7d4abc685be7bc9770c": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1907,
+        "search": "London music intitle:1907 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "33c3d5c59f8c17ed95ff0a2ecc1934ab35361f6b573ee57e6b4f6614537a59dd": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1923,
+        "search": "Mexico city intitle:1923 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "af42277a1c10faea1701114b8d0700c8076107d7d430b9f351486f87c234996a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1934,
+        "search": "Australia street intitle:1934 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "eb87e467f6dc0acbfd38fd561d54b988a626b9c0a114e8a461a3a4aef6ebe72b": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1938,
+        "search": "China train intitle:1938 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "74d99e75254dd691d6ad5b9b1af11e959052b2c70232a1db768fbcbb611073ef": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1933,
+        "search": "Kenya family intitle:1933 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5e4637930ba44c24da35a06ea6581b7e99051971bc1438edfa7dcb13f1489683": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1916,
+        "search": "New York market intitle:1916 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "90fdaac29f00d645d510b88e8fbccad99c12b8e24f87178db0bfa3d021e96e6d": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1944,
+        "search": "Singapore cars intitle:1944 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b2cecb3d9c33a223a1cfa224a7bda7bb0e75b0290907b85bbf0db0e648a780b8": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1902,
+        "search": "France school intitle:1902 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6ee989ff78e172e212b26edb6918494ede80e8773dedba8afd95fed0c76305aa": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1928,
+        "search": "India fashion intitle:1928 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8d4215c08542c522e8cbe059cf37c275ae1746c1870b84abfd2d480df8708c78": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1912,
+        "search": "Japan factory intitle:1912 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "1b0ed90fc44871726d3c74733146cbcf3d9fe2354820cfabb71cb1c0f24fca8b": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1914,
+        "search": "Egypt music intitle:1914 filetype:bitmap"
+      },
+      "source": "commons"
     }
   },
   "failures": [
