@@ -2918,7 +2918,7 @@
       "source": "commons"
     },
     "472aed2b94f8a600fba9925268b4327eb056b788ea09a6af6a0ff0f0fb041e23": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1928,
@@ -3323,7 +3323,7 @@
       "source": "commons"
     },
     "8eb87ab1c6506a4b61e4e77223c7cd37e37eacc077252635492de87c510ca33f": {
-      "cursor": 0,
+      "cursor": 50,
       "done": false,
       "query": {
         "year": 1933,
@@ -3490,6 +3490,96 @@
       "query": {
         "year": 1914,
         "search": "Egypt music intitle:1914 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "b87a6ec12dc4ea1c6c210827eb94361f7db11a4bf98be763d0dae6cba018e5e3": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1912,
+        "search": "Mexico city intitle:1912 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "bbef0b4ec4d5be65948f7219b56abb1da0a0fcb948dbe2a8bdaaad22ab5644f9": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1907,
+        "search": "New York market intitle:1907 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "5d2a2af0cd439e73de9937b20d482bd4c71a493ab7699da232a774097af13548": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1923,
+        "search": "Singapore cars intitle:1923 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "25c9db1b2bc0fa6238e11035a09a36f080908d839c29bc419fac16fd4a2bc3b5": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1934,
+        "search": "France school intitle:1934 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d5c93fb587d6fc5c25708ec786458ecddc3077777da0c6c6a005789ab10b9605": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1944,
+        "search": "India fashion intitle:1944 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c73a40932f00b4d0c6b53ccc91d2c56e84b30e52a233fef6f8f837952888f8ab": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1925,
+        "search": "Japan factory intitle:1925 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "984672917fa2bd38f18ca0f941626f14f2fbefe83eec096f38baa401673bf4d1": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1916,
+        "search": "Brazil city intitle:1916 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "33d9e7d1782dabe01208b9ce83f3574953713ca0686db3e83deccd249b17fda3": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1902,
+        "search": "London street intitle:1902 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "a3e0963d6d37245d6d9d9bd0b9a41e6e5f69e0676818ee6f71d7cbdbf40018db": {
+      "cursor": 0,
+      "done": true,
+      "query": {
+        "year": 1984,
+        "search": "Mexico train intitle:1984 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "a28d2136370b5b1bd43700bf418a58e6449fc3e1d574ff4107f8675d0be40353": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1924,
+        "search": "Australia family intitle:1924 filetype:bitmap"
       },
       "source": "commons"
     }
