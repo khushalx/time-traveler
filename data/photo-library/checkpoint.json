@@ -3386,7 +3386,7 @@
       "source": "commons"
     },
     "417b7631b4580e633af71405976422efa54245eee9232185ace66babcac04ef8": {
-      "cursor": 0,
+      "cursor": 50,
       "done": false,
       "query": {
         "year": 1944,
@@ -3580,6 +3580,87 @@
       "query": {
         "year": 1924,
         "search": "Australia family intitle:1924 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "7010deda59e4afa32a48e19642cbc272505df1a73572b0ab53366cc4881dc960": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1933,
+        "search": "street intitle:1933 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c19959980ee3b95eda5a1e15ce8c52d70d9e30a60dbf2537e66b3d27c0fc0523": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1902,
+        "search": "train intitle:1902 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "bb43e9098bfc21f5f329c5e339b777fb7bf0d3a601defc6653b922f3b0e4b073": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1938,
+        "search": "family intitle:1938 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "7a53ac4692605b0df27e0c5ebdb45191538309bafa8c7f00ccf1e1d085cded2e": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1916,
+        "search": "market intitle:1916 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d1439fa243bffe32f34eb111a802e0d891bca285fb6eecbe4f2529831a398208": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1928,
+        "search": "cars intitle:1928 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "603a57652487483e6592e1c1709338d22dedac575f7c6d294478b9852c97d923": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1912,
+        "search": "fashion intitle:1912 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6df7139b2b89140a6dea703dfee9e9ad4fc10f590fb95c14e7ef8e7e05fbfbda": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1914,
+        "search": "factory intitle:1914 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "652ec7107bd62feb968be4f410cda68c013bcedd21800a7a81aad1ef8f3c7e70": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1934,
+        "search": "music intitle:1934 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "d4a9a683160656a6e77a1fc7ef74cf3d17a0368848014bb9577100e4f5e4a8fa": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1925,
+        "search": "city intitle:1925 filetype:bitmap"
       },
       "source": "commons"
     }
