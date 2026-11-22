@@ -1,12 +1,12 @@
 {
   "policyVersion": 1,
-  "candidatesDiscovered": 11783,
+  "candidatesDiscovered": 12183,
   "importedApproved": 251,
   "existingCurated": 26,
-  "totalPlayable": 496,
-  "liveApproved": 219,
-  "rejected": 4568,
-  "pendingReview": 6745,
+  "totalPlayable": 497,
+  "liveApproved": 220,
+  "rejected": 4750,
+  "pendingReview": 6962,
   "duplicatesRemoved": 11,
   "byDecade": {
     "1900s": 5,
@@ -45,23 +45,23 @@
     "Unspecified": 57
   },
   "reviewReasons": {
-    "ambiguous-or-missing-capture-date": 3794,
+    "ambiguous-or-missing-capture-date": 3980,
     "asset-validation-failed: Image dimensions or aspect ratio fail quality policy": 1,
     "collection-concentration-requires-review": 107,
-    "conflicting-or-approximate-context-date": 2446,
-    "discovery-year-conflicts-with-capture-date": 6550,
-    "extreme-aspect-ratio": 380,
-    "low-source-resolution": 2455,
+    "conflicting-or-approximate-context-date": 2586,
+    "discovery-year-conflicts-with-capture-date": 6768,
+    "extreme-aspect-ratio": 401,
+    "low-source-resolution": 2531,
     "missing-required-creator": 1,
     "object-creation-date-is-not-a-capture-date": 20,
-    "ocr-unavailable": 275,
-    "source-restrictions-require-review": 243,
-    "title-date-conflicts-with-capture-date": 2598,
-    "unclear-or-incompatible-rights": 6777,
-    "unsuitable-or-non-photographic-subject": 2044,
+    "ocr-unavailable": 284,
+    "source-restrictions-require-review": 244,
+    "title-date-conflicts-with-capture-date": 2645,
+    "unclear-or-incompatible-rights": 7032,
+    "unsuitable-or-non-photographic-subject": 2148,
     "Visual review rejected: redundant shoot coverage, visible dates or watermarks, insufficient period context, poor clarity, or non-photographic subject.": 167,
     "visual-duplicate": 11,
-    "visual-review-required": 275
+    "visual-review-required": 284
   },
   "failures": [
     {
