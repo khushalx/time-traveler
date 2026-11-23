@@ -1,13 +1,13 @@
 {
   "policyVersion": 1,
-  "candidatesDiscovered": 12183,
+  "candidatesDiscovered": 12536,
   "importedApproved": 251,
   "existingCurated": 26,
-  "totalPlayable": 497,
-  "liveApproved": 220,
-  "rejected": 4750,
-  "pendingReview": 6962,
-  "duplicatesRemoved": 11,
+  "totalPlayable": 509,
+  "liveApproved": 232,
+  "rejected": 4903,
+  "pendingReview": 7150,
+  "duplicatesRemoved": 12,
   "byDecade": {
     "1900s": 5,
     "1910s": 3,
@@ -45,23 +45,23 @@
     "Unspecified": 57
   },
   "reviewReasons": {
-    "ambiguous-or-missing-capture-date": 3980,
+    "ambiguous-or-missing-capture-date": 4100,
     "asset-validation-failed: Image dimensions or aspect ratio fail quality policy": 1,
-    "collection-concentration-requires-review": 107,
-    "conflicting-or-approximate-context-date": 2586,
-    "discovery-year-conflicts-with-capture-date": 6768,
-    "extreme-aspect-ratio": 401,
-    "low-source-resolution": 2531,
+    "collection-concentration-requires-review": 121,
+    "conflicting-or-approximate-context-date": 2687,
+    "discovery-year-conflicts-with-capture-date": 6954,
+    "extreme-aspect-ratio": 417,
+    "low-source-resolution": 2572,
     "missing-required-creator": 1,
     "object-creation-date-is-not-a-capture-date": 20,
-    "ocr-unavailable": 284,
-    "source-restrictions-require-review": 244,
-    "title-date-conflicts-with-capture-date": 2645,
-    "unclear-or-incompatible-rights": 7032,
-    "unsuitable-or-non-photographic-subject": 2148,
+    "ocr-unavailable": 300,
+    "source-restrictions-require-review": 248,
+    "title-date-conflicts-with-capture-date": 2711,
+    "unclear-or-incompatible-rights": 7227,
+    "unsuitable-or-non-photographic-subject": 2265,
     "Visual review rejected: redundant shoot coverage, visible dates or watermarks, insufficient period context, poor clarity, or non-photographic subject.": 167,
-    "visual-duplicate": 11,
-    "visual-review-required": 284
+    "visual-duplicate": 12,
+    "visual-review-required": 300
   },
   "failures": [
     {
@@ -99,6 +99,12 @@
       "query": "Australia music intitle:1952 filetype:bitmap",
       "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
       "at": "2026-10-30T10:53:11.436Z"
+    },
+    {
+      "source": "commons",
+      "query": "Brazil city intitle:1902 filetype:bitmap",
+      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
+      "at": "2026-11-23T14:38:13.104Z"
     }
   ],
   "sourceStatus": {

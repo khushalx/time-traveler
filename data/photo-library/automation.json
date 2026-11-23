@@ -1,16 +1,23 @@
 {
-  "sequence": 32,
+  "sequence": 33,
   "policy": "commons-auto-v1",
-  "startedAt": "2026-11-22T12:34:00.499Z",
-  "completedAt": "2026-11-22T12:38:29.053Z",
-  "added": 1,
-  "total": 220,
-  "tag": "photo-live-3655c60d174d237e",
-  "version": "52081e8d968e52ea",
-  "checked": 1,
+  "startedAt": "2026-11-23T14:35:48.038Z",
+  "completedAt": "2026-11-23T14:40:57.497Z",
+  "added": 12,
+  "total": 232,
+  "tag": "photo-live-cc8a40591d7542df",
+  "version": "a49339e4c5b791e5",
+  "checked": 12,
   "held": {},
-  "liveTotal": 220,
-  "playableTotal": 497,
-  "discovered": 400,
-  "providerFailures": []
+  "liveTotal": 232,
+  "playableTotal": 509,
+  "discovered": 353,
+  "providerFailures": [
+    {
+      "source": "commons",
+      "query": "Brazil city intitle:1902 filetype:bitmap",
+      "message": "API error: cirrussearch-too-busy-error Search is currently too busy. Please try again later.",
+      "at": "2026-11-23T14:38:13.104Z"
+    }
+  ]
 }
