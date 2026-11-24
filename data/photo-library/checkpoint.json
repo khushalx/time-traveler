@@ -425,7 +425,7 @@
       "source": "commons"
     },
     "3dd3af27474257a6b6891d4e92aef22ca03343b469b3bdd36ceaa8d451901278": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1925,
@@ -2288,7 +2288,7 @@
       "source": "commons"
     },
     "427869aeb0e1b2fb45a419bc03fd2e0b2fae189b19fbf046fb983264319772f8": {
-      "cursor": 0,
+      "cursor": 50,
       "done": false,
       "query": {
         "year": 1912,
@@ -3071,7 +3071,7 @@
       "source": "commons"
     },
     "57bf8f08e6a73694181b2672206609acfb944eb2768bcd290d8b7077d6feefb0": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1934,
@@ -3341,7 +3341,7 @@
       "source": "commons"
     },
     "933aab747b1ee26f52b6a1f8a692df1e5b0ef72377bc8dd90228ec5d0f70acfd": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1928,
@@ -3859,6 +3859,51 @@
       "query": {
         "year": 2001,
         "search": "Kenya cars intitle:2001 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "9f110c367c16284eb20df59f418754ad4a6f49dbe69bb0ee01899d53a9ed10ba": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1916,
+        "search": "school intitle:1916 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4454ede1d711ee5858f29d449cadd828dbbe9f5ab60ac1f63122ae64b8773530": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1938,
+        "search": "factory intitle:1938 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "bb2b9e233ab30585deb5ea9332ec9448a9421d96c7a2da8eea07d2d3431e3a05": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1902,
+        "search": "city intitle:1902 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "4d93ad1fbb7f83a5c3e77d21c2c7cb047ce6a68230b78409a2704879b1474ea3": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1914,
+        "search": "street intitle:1914 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "8a1c490a9aa9d3281eac0fa3dcc329e6b612e9808bc8650a9567ffef2c58df30": {
+      "cursor": 0,
+      "done": false,
+      "query": {
+        "year": 1907,
+        "search": "train intitle:1907 filetype:bitmap"
       },
       "source": "commons"
     }
