@@ -803,7 +803,7 @@
       "source": "commons"
     },
     "91ee28d9ed1f100e5220de932b171971fe929b6e874ae6a7987d0f98dc6393de": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1930,
@@ -2252,7 +2252,7 @@
       "source": "commons"
     },
     "7eeda22fbdfe478f1b343c1c90a50f9b5e7d4c10dfabc7264a8cd2ffdf62c70e": {
-      "cursor": 100,
+      "cursor": 150,
       "done": false,
       "query": {
         "year": 1928,
@@ -3089,7 +3089,7 @@
       "source": "commons"
     },
     "e425858719250c1e9ef98b5fc219cd900ad4da4d8c2600f2b34b984362b247de": {
-      "cursor": 50,
+      "cursor": 100,
       "done": false,
       "query": {
         "year": 1907,
@@ -4093,6 +4093,60 @@
       "query": {
         "year": 2016,
         "search": "France factory intitle:2016 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "e688678912224e961ed86dede99aaa5d402256a52ecb5848f69c3ee9acce3cde": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1902,
+        "search": "fashion intitle:1902 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "f64063b01069a599d49007b54c3ff777343d84b8e63f3b2dfd96f856851bf366": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1914,
+        "search": "music intitle:1914 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "ce0d82153f1787176fe1609d2e37bf1edef01e148aac6432aa88dc321a4a8d9b": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1916,
+        "search": "street intitle:1916 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "3ea29a3cb1fbd4e90a1cd5e974b4e4a570a47eb45c692c7dff9206ed05fc2f5f": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 2001,
+        "search": "train intitle:2001 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "6e0ba6099dceaaf2fc2f41579c03d0aeeea5ba73bcb4218d62011127121c0737": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1903,
+        "search": "family intitle:1903 filetype:bitmap"
+      },
+      "source": "commons"
+    },
+    "c1924ab34553add0435a66e24f56f9097b6ad9231d3a719fd0a9fd5797e5620a": {
+      "cursor": 50,
+      "done": false,
+      "query": {
+        "year": 1962,
+        "search": "cars intitle:1962 filetype:bitmap"
       },
       "source": "commons"
     }
